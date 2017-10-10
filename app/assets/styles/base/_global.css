@@ -1,0 +1,14 @@
+/*Set body style*/
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #333;
+}
+
+/*Target all images of the page*/
+img {
+	/*Set max width to 100% so the browser shrinks the image to the canvas size*/
+ max-width: 100%;
+ /*Set height to auto*/
+ height: auto;
+
+}

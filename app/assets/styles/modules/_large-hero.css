@@ -1,0 +1,42 @@
+.large-hero {
+	position: relative;
+
+	/*Nesting selectors
+	postcss will take care to un-nest them
+	but instead of using .large-hero__text-content as the selector name
+	"&" is used to represent the group selector ".large-hero" 
+	This is done to avoid postcss to generate nested CSS and keep BEM phylosophy*/
+	&__text-content {
+		/*change position to absolute so the text is located on top of the large-hero image*/
+		position: absolute;
+		/*Shift the text 50% down from the top and use the transform translate 
+		to pull the text up 50% of its own width size (Y coordenate)*/
+		top: 50%;
+		/*position an object vertically in relation to itself*/
+		transform: translateY(-50%);
+		left: 0;
+		/*change width to 100% and align to center so it can be centered*/
+		width: 100%;
+		text-align: center;
+	}
+
+	&__title {
+		/*Remove text bold*/
+		font-weight: 300;
+		color: #2f5572;
+		/*rem represent the size of the <html> header defined by the browser which is aproximately 16*/
+		font-size: 4.8rem;
+	}
+
+	&__subtitle {
+		/*Remove text bold*/
+		font-weight: 300;
+		color: #2f5572;
+		/*rem represent the size of the <html> header defined by the browser which is aproximately 16*/
+		font-size: 2.9rem;
+
+	}
+}
+
+
+

@@ -1,2 +1,7 @@
-w
-ww
+/*postcss-import module allows the import of css files that are focused on
+styling specific parts of the web application so the code is better organized and
+easy to mantein*/
+/*Normalize adjust the style of some elements as an effort to render web pages more consistently across browsers*/
+@import "normalize.css";
+@import "base/_global";
+@import "modules/_large-hero";

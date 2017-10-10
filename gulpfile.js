@@ -1,6 +1,18 @@
 //Include glup and glup-watch
 var gulp = require('gulp'),
-watch = require('gulp-watch');
+//Require gulp-watch to monitor file changes
+watch = require('gulp-watch'),
+//require postcss as a CSS preprocessor 
+postcss = require('gulp-postcss'),
+//require autoprefixer to automatically prefix vendor tags to CSS files
+autoprefixer = require('autoprefixer'),
+//require simple-vars to use variables within CSS files
+cssvars = require('postcss-simple-vars'),
+//require nested to be able to nest CSS code
+nested = require('postcss-nested'),
+//require import to be able to import css files within other css files
+cssImport = require('postcss-import');
+
 
 //Create gulp main task providing task name and callback function
 //this task is mandatory
@@ -15,7 +27,12 @@ gulp.task('html', function () {
 
 //Define a task called styles
 gulp.task('styles', function () {
-  console.log('Here we can run Sass or PostCSS');
+  //asyncronously return the result of the styles file saved into the temp folder
+  return gulp.src('./app/assets/styles/styles.css')
+    //pipe the postcss features or filters to be applied to the source file
+    .pipe(postcss([cssImport, cssvars, nested, autoprefixer]))
+    //pipe the destination folder to save source file
+    .pipe(gulp.dest('./app/temp/styles'));
 });
 
 //Define a task called watch
@@ -31,6 +48,7 @@ gulp.task('watch', function () {
   watch('./app/assets/styles/**/*.css', function () {
     //star the task styles when any css in above path changes
     gulp.start('styles');
+
   });
 
 });
