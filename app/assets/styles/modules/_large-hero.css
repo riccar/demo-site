@@ -4,12 +4,12 @@
 	/*Nesting selectors
 	postcss will take care to un-nest them
 	but instead of using .large-hero__text-content as the selector name
-	"&" is used to represent the group selector ".large-hero" 
+	"&" is used to represent the group selector ".large-hero"
 	This is done to avoid postcss to generate nested CSS and keep BEM phylosophy*/
 	&__text-content {
 		/*change position to absolute so the text is located on top of the large-hero image*/
 		position: absolute;
-		/*Shift the text 50% down from the top and use the transform translate 
+		/*Shift the text 50% down from the top and use the transform translate
 		to pull the text up 50% of its own width size (Y coordenate)*/
 		top: 50%;
 		/*position an object vertically in relation to itself*/
@@ -23,20 +23,49 @@
 	&__title {
 		/*Remove text bold*/
 		font-weight: 300;
-		color: #2f5572;
-		/*rem represent the size of the <html> header defined by the browser which is aproximately 16*/
+		color: $mainBlue;
+		/*rem represent the size of the <html> header
+		fot size defined by the browser which is aproximately 16px*/
 		font-size: 4.8rem;
+		/*Set margin to 0 to close together the title and subtitle*/
+		margin: 0;
 	}
 
 	&__subtitle {
 		/*Remove text bold*/
 		font-weight: 300;
-		color: #2f5572;
-		/*rem represent the size of the <html> header defined by the browser which is aproximately 16*/
+		color: $mainBlue;
+		/*rem represent the size of the <html> header defined
+		by the browser which is aproximately 16
+		It's used to scale accordingly to the user's font size
+		preference setup in their browser*/
 		font-size: 2.9rem;
+		/*Set margin to 0 to close together the title and subtitle*/
+		margin: 0;
+
+	}
+
+	&__description {
+		/*Make text white and use large font*/
+		color: #FFF;
+		/*Rem makes sizes relative to the root page
+		In this case the font siez will be 1.5 time the size of
+		the root <html> tag font size which
+		is equivalent to 16 pixels
+		If this text should be of 30px in size
+		then font size should be 30/16 = 1.875
+		*/
+		font-size: 1.875rem;
+		/*Remove boldness*/
+		font-weight: 100;
+		/*add shadow of 10% visibiity*/
+		text-shadow: 2px 2px 0 rgba(0, 0, 0, .1) ;
+		/*Split the description text in two lines
+		by setting max-width to 480px or 480/16 = */
+		max-width: 30rem;
+		/*re center the text horizontally*/
+		margin-left: auto;
+		margin-right: auto;
 
 	}
 }
-
-
-

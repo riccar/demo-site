@@ -1,0 +1,23 @@
+
+.btn {
+  background-color: $mainBlue;
+  color: #FFF;
+  /*Remove underline*/
+  text-decoration: none;
+  /*add space around the borders top/bottom = .75*/
+  padding: .75rem 1.2rem;
+  /*Set element as inline-block level
+  so its parent and surrounding elements are aware of
+  its vertical padding*/
+  display: inline-block;
+
+  &--orange {
+    background-color: $mainOrage;
+  }
+
+  &--large {
+    /*Make font 25% largend than browser default font size of 16px*/
+    font-size: 1.25rem;
+    padding: .80rem 1.3rem;
+  }
+}

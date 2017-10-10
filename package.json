@@ -10,11 +10,11 @@
     "waypoints": "4.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.2",
+    "autoprefixer": "^7.1.5",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
     "babel-preset-es2015": "6.24.1",
-    "browser-sync": "2.18.13",
+    "browser-sync": "^2.18.13",
     "del": "3.0.0",
     "gulp": "^3.9.1",
     "gulp-cssnano": "2.1.2",
@@ -31,8 +31,8 @@
     "postcss-hexrgba": "0.2.1",
     "postcss-import": "^10.0.0",
     "postcss-mixins": "6.0.1",
-    "postcss-nested": "^2.0.4",
-    "postcss-simple-vars": "^4.0.0",
+    "postcss-nested": "^2.1.2",
+    "postcss-simple-vars": "^4.1.0",
     "webpack": "3.4.0"
   }
 }
