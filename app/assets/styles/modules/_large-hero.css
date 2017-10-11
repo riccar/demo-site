@@ -21,27 +21,61 @@
 	}
 
 	&__title {
+
+		/*The stying outside the @mixing is taking as the baseline
+		for all the screen sizes, even the smallest possible size
+		For bigger screens the styeling is defined within the mixings*/
 		/*Remove text bold*/
 		font-weight: 300;
 		color: $mainBlue;
-		/*rem represent the size of the <html> header
-		fot size defined by the browser which is aproximately 16px*/
-		font-size: 4.8rem;
 		/*Set margin to 0 to close together the title and subtitle*/
 		margin: 0;
+
+		/*rem represent the size of the <html> header defined
+		by the browser which is aproximately 16px
+		It's used to scale accordingly to the user's font size
+		preference setup in their browser*/
+
+		/*Media-first approach: default font-size for the
+		smalles possible screens*/
+		font-size: 1.1rem;
+
+		/*Media query to increase font size if screen is 530px*/
+		@mixin atSmall {
+			font-size: 2rem;
+		}
+
+		/*Media query to increase font size if screen is 530px*/
+		@mixin atMedium {
+			font-size: 3.2rem;
+		}
+
+		/*Media query to increase font size if screen is 530px*/
+		@mixin atLarge {
+			font-size: 4.8rem;
+		}
+
 	}
 
 	&__subtitle {
 		/*Remove text bold*/
 		font-weight: 300;
 		color: $mainBlue;
-		/*rem represent the size of the <html> header defined
-		by the browser which is aproximately 16
-		It's used to scale accordingly to the user's font size
-		preference setup in their browser*/
-		font-size: 2.9rem;
 		/*Set margin to 0 to close together the title and subtitle*/
 		margin: 0;
+		font-size: 1.1rem;
+
+		@mixin atSmall {
+			font-size: 2.9rem;
+		}
+
+		@mixin atMedium {
+			font-size: 3.9rem;
+		}
+
+		@mixin atLarge {
+			font-size: 5.1rem;
+		}
 
 	}
 
