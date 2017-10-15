@@ -1,0 +1,11 @@
+/*Add left and right padding to wrapp text*/
+.wrapper {
+  padding-left: 18px;
+  padding-right: 18px;
+  /*provide maximum width so the text is not extended to the right
+  side of the browser edge*/
+  max-width: 1200px;
+  /*center text within its width area*/
+  margin-left: auto;
+  margin-right: auto;
+}

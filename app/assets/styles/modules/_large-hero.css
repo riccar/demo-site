@@ -1,4 +1,6 @@
 .large-hero {
+	/*Create the blue bar at the bottom of the large-hero element*/
+	border-bottom: 10px solid $mainBlue;
 	position: relative;
 
 	/*Nesting selectors
@@ -6,6 +8,14 @@
 	but instead of using .large-hero__text-content as the selector name
 	"&" is used to represent the group selector ".large-hero"
 	This is done to avoid postcss to generate nested CSS and keep BEM phylosophy*/
+
+	&__image {
+		/*change the default inline level element of the image to become
+		block to remove the default gap between inline elements like
+		images and text lines */
+		display: block;
+	}
+
 	&__text-content {
 		/*change position to absolute so the text is located on top of the large-hero image*/
 		position: absolute;
@@ -38,20 +48,10 @@
 
 		/*Media-first approach: default font-size for the
 		smalles possible screens*/
-		font-size: 1.1rem;
+		font-size: 2.4rem;
 
 		/*Media query to increase font size if screen is 530px*/
 		@mixin atSmall {
-			font-size: 2rem;
-		}
-
-		/*Media query to increase font size if screen is 530px*/
-		@mixin atMedium {
-			font-size: 3.2rem;
-		}
-
-		/*Media query to increase font size if screen is 530px*/
-		@mixin atLarge {
 			font-size: 4.8rem;
 		}
 
@@ -63,18 +63,10 @@
 		color: $mainBlue;
 		/*Set margin to 0 to close together the title and subtitle*/
 		margin: 0;
-		font-size: 1.1rem;
+		font-size: 1.5rem;
 
 		@mixin atSmall {
 			font-size: 2.9rem;
-		}
-
-		@mixin atMedium {
-			font-size: 3.9rem;
-		}
-
-		@mixin atLarge {
-			font-size: 5.1rem;
 		}
 
 	}
@@ -89,7 +81,7 @@
 		If this text should be of 30px in size
 		then font size should be 30/16 = 1.875
 		*/
-		font-size: 1.875rem;
+		font-size: 1.1rem;
 		/*Remove boldness*/
 		font-weight: 100;
 		/*add shadow of 10% visibiity*/
@@ -100,6 +92,10 @@
 		/*re center the text horizontally*/
 		margin-left: auto;
 		margin-right: auto;
+
+		@mixin atSmall {
+			font-size: 1.875rem;
+		}
 
 	}
 }
