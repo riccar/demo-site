@@ -382,17 +382,14 @@ img {
 	border-bottom: 10px solid #2f5572;
 	position: relative;
 }
-/*Nesting selectors
-	postcss will take care to un-nest them
-	but instead of using .large-hero__text-content as the selector name
-	"&" is used to represent the group selector ".large-hero"
-	This is done to avoid postcss to generate nested CSS and keep BEM phylosophy*/
+/*Modifier class to set images as block*/
 .large-hero__image {
 		/*change the default inline level element of the image to become
 		block to remove the default gap between inline elements like
 		images and text lines */
 		display: block;
 	}
+/*Modifier class to style text conent within large-hero*/
 .large-hero__text-content {
 		/*change position to absolute so the text is located on top of the large-hero image*/
 		position: absolute;
@@ -407,6 +404,11 @@ img {
 		width: 100%;
 		text-align: center;
 	}
+/*Nesting selectors
+	postcss will take care to un-nest them
+	but instead of using .large-hero__text-content as the selector name
+	"&" is used to represent the group selector ".large-hero"
+	This is done to avoid postcss to generate nested CSS and keep BEM phylosophy*/
 .large-hero__title {
 
 		/*The stying outside the @mixing is taking as the baseline
@@ -524,3 +526,46 @@ img {
     background-color: #2f5572;
     color: #FFF;
   }
+.headline {
+	/*defaul headline text style*/
+	font-weight: 300;
+	font-size: 2.875rem;
+	color: #2f5572;
+	
+}
+/*Modifier class to center headlines*/
+.headline--centered {
+		text-align: center;
+	}
+.headline--orange {
+		color: #d59541;
+	}
+.headline--small {
+		font-size: 1.875rem;
+	}
+.headline--narrow {
+		/*Shrink the headline to 500px so the text is arranged in two lines*/
+		max-width: 500px;
+		/*center text within its width area*/
+  	margin-left: auto;
+  	margin-right: auto;
+	}
+/*Modfifier class to decrease font tickness*/
+.headline--light {
+		font-weight: 100;
+	}
+.headline strong {
+		font-weight: 400;
+	}
+.headline--x {
+		/*decrease bottom marghine to .5em
+		Use em instead of rem because it's relative to the font size of the element itself
+		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
+		margin-bottom: .5em;
+	}
+.headline--y {
+		/*decrease bottom marghine to 1.5em
+		Use em instead of rem because it's relative to the font size of the element itself
+		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
+		margin-bottom: 1.6em;	
+	}

@@ -9,6 +9,7 @@
 	"&" is used to represent the group selector ".large-hero"
 	This is done to avoid postcss to generate nested CSS and keep BEM phylosophy*/
 
+	/*Modifier class to set images as block*/
 	&__image {
 		/*change the default inline level element of the image to become
 		block to remove the default gap between inline elements like
@@ -16,6 +17,7 @@
 		display: block;
 	}
 
+	/*Modifier class to style text conent within large-hero*/
 	&__text-content {
 		/*change position to absolute so the text is located on top of the large-hero image*/
 		position: absolute;

@@ -12,7 +12,7 @@
   display: inline-block;
 
   &--orange {
-    background-color: $mainOrage;
+    background-color: $mainOrange;
   }
 
   &--large {

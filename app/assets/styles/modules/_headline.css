@@ -1,0 +1,51 @@
+.headline {
+	/*defaul headline text style*/
+	font-weight: 300;
+	font-size: 2.875rem;
+	color: $mainBlue;
+
+	/*Modifier class to center headlines*/
+	&--centered {
+		text-align: center;
+	}
+
+	&--orange {
+		color: $mainOrange;
+	}
+
+	&--small {
+		font-size: 1.875rem;
+	}	
+
+	&--narrow {
+		/*Shrink the headline to 500px so the text is arranged in two lines*/
+		max-width: 500px;
+		/*center text within its width area*/
+  	margin-left: auto;
+  	margin-right: auto;
+	}
+
+	/*Modfifier class to decrease font tickness*/
+	&--light {
+		font-weight: 100;
+	}
+
+	strong {
+		font-weight: 400;
+	}
+
+	&--x {
+		/*decrease bottom marghine to .5em
+		Use em instead of rem because it's relative to the font size of the element itself
+		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
+		margin-bottom: .5em;
+	}
+
+	&--y {
+		/*decrease bottom marghine to 1.5em
+		Use em instead of rem because it's relative to the font size of the element itself
+		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
+		margin-bottom: 1.6em;	
+	}
+	
+}
