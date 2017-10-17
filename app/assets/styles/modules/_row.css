@@ -15,8 +15,18 @@
     padding-right: 65px;
   }
 
+  /*Add margin bottom for small size screens (default value)*/
+  &__b-margin-until-medium {
+    margin-bottom: 1rem;
+  }
   /*Apply 4 / 8 column layout only for screen sizes at or bigger than medium*/
   @mixin atMedium {
+
+    /*Remove margin bottom when screens are at midium size or larger*/
+    &__b-margin-until-medium {
+      margin-bottom: 0;
+    }
+
     /*Class selector to set the width of a row content
     to be 4 columms of a 12 coloumns layout. If 12 columns are 100% width
     then 4 columns are 100/12 = 8.333 * 4 = 33.33% */

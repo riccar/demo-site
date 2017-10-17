@@ -1,0 +1,20 @@
+/*
+Generic class for content with paragraphs
+*/
+.generic-content-container {
+  p {
+    line-height: 1.65;
+
+    margin: 1.8rem 0;
+
+    /*increase font size to 18px in rem 18/16 1.125rem for medium size 
+    screens or larger*/
+    @mixin atMedium {
+        font-size: 1.125rem;
+    }
+  }
+
+  p a {
+    font-weight: 700;
+  }
+}

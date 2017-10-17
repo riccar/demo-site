@@ -18,3 +18,7 @@ img {
 	the padding when calculating the total width of an object*/
 	box-sizing: border-box;
 }
+
+a {
+	color: $mainOrange;
+}

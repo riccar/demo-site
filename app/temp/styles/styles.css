@@ -379,6 +379,9 @@ img {
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 }
+a {
+	color: #d59541;
+}
 /*Mixins for screen sizes larger than a mobile phone*/
 /*atSmall for screen size of 530px*/
 /*atSmall for screen size of 800px*/
@@ -632,6 +635,9 @@ set to be float so the container knows what's its current height*/
 		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
 		margin-bottom: 1.6em;
 	}
+.headline--no-t-margin {
+		margin-top: 0;
+	}
 /*The following selector creates an empty space in the html with CSS
   after all of the content of its container then the space is cleared both*/
 .row::after {
@@ -652,9 +658,16 @@ set to be float so the container knows what's its current height*/
     /*This padding right applies to all the columns of the row*/
     padding-right: 65px;
   }
+/*Add margin bottom for small size screens (default value)*/
+.row__b-margin-until-medium {
+    margin-bottom: 1rem;
+  }
 /*Apply 4 / 8 column layout only for screen sizes at or bigger than medium*/
 @media (min-width: 800px) {
 .row {
+
+    /*Remove margin bottom when screens are at midium size or larger*/
+
     /*Class selector to set the width of a row content
     to be 4 columms of a 12 coloumns layout. If 12 columns are 100% width
     then 4 columns are 100/12 = 8.333 * 4 = 33.33% */
@@ -666,6 +679,9 @@ set to be float so the container knows what's its current height*/
 
 
 }
+    .row__b-margin-until-medium {
+      margin-bottom: 0;
+    }
     .row__medium-4 {
       float: left;
       width: 33.33%;
@@ -681,4 +697,22 @@ set to be float so the container knows what's its current height*/
     .row__medium-8--smaller {
       width: 63%;
     }
+  }
+/*
+Generic class for content with paragraphs
+*/
+.generic-content-container p {
+    line-height: 1.65;
+
+    margin: 1.8rem 0;
+  }
+/*increase font size to 18px in rem 18/16 1.125rem for medium size 
+    screens or larger*/
+@media (min-width: 800px) {
+.generic-content-container p {
+        font-size: 1.125rem
+  }
+  }
+.generic-content-container p a {
+    font-weight: 700;
   }
