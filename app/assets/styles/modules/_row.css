@@ -1,0 +1,47 @@
+.row {
+
+  @mixin clearfix;
+
+  /*Nullify the padding right with a negative margin right applyied to the row
+  container to delete the gutter for the last column. The overflow caused
+  is deleted in the _wrapper.css file using overflow:hidden*/
+  &--gutters {
+    margin-right: -65px;
+  }
+  /*Class selector gutters to provide a vertical gap between row columns
+  the > indicate that it should apply to all the inner div inside the row*/
+  &--gutters > div {
+    /*This padding right applies to all the columns of the row*/
+    padding-right: 65px;
+  }
+
+  /*Apply 4 / 8 column layout only for screen sizes at or bigger than medium*/
+  @mixin atMedium {
+    /*Class selector to set the width of a row content
+    to be 4 columms of a 12 coloumns layout. If 12 columns are 100% width
+    then 4 columns are 100/12 = 8.333 * 4 = 33.33% */
+    &__medium-4 {
+      float: left;
+      width: 33.33%;
+    }
+
+    /*Class modifiers to make the first 4 columns slightly larger*/
+    &__medium-4--larger {
+      width: 37%;
+    }
+
+    /*Class selector for 8 column width content*/
+    &__medium-8 {
+      float: left;
+      width: 66.66%;
+    }
+
+    &__medium-8--smaller {
+      width: 63%;
+    }
+
+  }
+
+
+
+}

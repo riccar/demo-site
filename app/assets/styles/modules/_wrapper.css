@@ -1,11 +1,45 @@
 /*Add left and right padding to wrapp text*/
 .wrapper {
+
+  /*Hide the oveflow value for elements inside the wrapper whose width
+  overflows it*/
+  overflow: hidden;
   padding-left: 18px;
   padding-right: 18px;
   /*provide maximum width so the text is not extended to the right
-  side of the browser edge*/
-  max-width: 1200px;
+  side of the browser edge. The initial value was 1200 but after setting the
+  box-sizing: border-box; as a global rule the paddings are now added
+  to the total width of this class to make it 1200. It means that 1200
+  must be increased to 1200 + 18 + 18 for each padding*/
+  max-width: 1236px;
   /*center text within its width area*/
   margin-left: auto;
   margin-right: auto;
+
+  /*Modifier nexted class to center smaller objects
+  this one is for a picture of 976px*/
+  &--medium {
+    max-width: 976px;
+  }
+
+  /*Defining another wrapper modifier to specify
+  that any wrapper inside a wrapper shound not have paddings.*/
+  .wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &--b-margin {
+
+    margin-bottom: 1rem;
+
+    /*Divide design bottom margin between the content of this wrapper and the
+    next element between 16 to get the size in rem so it scales properly
+    to user's browser font size*/
+    @mixin atSmall {
+      margin-bottom: 3.875rem;
+    }
+
+  }
+
 }

@@ -1,8 +1,13 @@
 .headline {
 	/*defaul headline text style*/
 	font-weight: 300;
-	font-size: 2.875rem;
+	font-size: 1.9rem;
 	color: $mainBlue;
+
+	/*Increase font type for medium size screens or bigger*/
+	@mixin atSmall {
+		font-size: 2.875rem;
+	}
 
 	/*Modifier class to center headlines*/
 	&--centered {
@@ -14,8 +19,12 @@
 	}
 
 	&--small {
-		font-size: 1.875rem;
-	}	
+		font-size: 1.2rem;
+		@mixin atSmall {
+			font-size: 1.875rem;
+		}
+
+	}
 
 	&--narrow {
 		/*Shrink the headline to 500px so the text is arranged in two lines*/
@@ -34,18 +43,18 @@
 		font-weight: 400;
 	}
 
-	&--x {
+	&--b-margin-small {
 		/*decrease bottom marghine to .5em
 		Use em instead of rem because it's relative to the font size of the element itself
 		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
 		margin-bottom: .5em;
 	}
 
-	&--y {
+	&--b-margin-large {
 		/*decrease bottom marghine to 1.5em
 		Use em instead of rem because it's relative to the font size of the element itself
 		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
-		margin-bottom: 1.6em;	
+		margin-bottom: 1.6em;
 	}
-	
+
 }

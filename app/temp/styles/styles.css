@@ -371,12 +371,20 @@ img {
  max-width: 100%;
  /*Set height to auto*/
  height: auto;
-
+}
+/*Selector rule * to apply to every singe element on the page*/
+* {
+	/*Add box-sizing:border-box to force the browser to take into account
+	the padding when calculating the total width of an object*/
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 /*Mixins for screen sizes larger than a mobile phone*/
 /*atSmall for screen size of 530px*/
 /*atSmall for screen size of 800px*/
 /*atSmall for screen size of 1200px*/
+/*clearfix to clear elements in container when they are
+set to be float so the container knows what's its current height*/
 .large-hero {
 	/*Create the blue bar at the bottom of the large-hero element*/
 	border-bottom: 10px solid #2f5572;
@@ -509,19 +517,60 @@ img {
   }
 /*Add left and right padding to wrapp text*/
 .wrapper {
+
+  /*Hide the oveflow value for elements inside the wrapper whose width
+  overflows it*/
+  overflow: hidden;
   padding-left: 18px;
   padding-right: 18px;
   /*provide maximum width so the text is not extended to the right
-  side of the browser edge*/
-  max-width: 1200px;
+  side of the browser edge. The initial value was 1200 but after setting the
+  box-sizing: border-box; as a global rule the paddings are now added
+  to the total width of this class to make it 1200. It means that 1200
+  must be increased to 1200 + 18 + 18 for each padding*/
+  max-width: 1236px;
   /*center text within its width area*/
   margin-left: auto;
   margin-right: auto;
+
 }
+/*Modifier nexted class to center smaller objects
+  this one is for a picture of 976px*/
+.wrapper--medium {
+    max-width: 976px;
+  }
+/*Defining another wrapper modifier to specify
+  that any wrapper inside a wrapper shound not have paddings.*/
+.wrapper .wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+.wrapper--b-margin {
+
+    margin-bottom: 1rem;
+
+  }
+/*Divide design bottom margin between the content of this wrapper and the
+    next element between 16 to get the size in rem so it scales properly
+    to user's browser font size*/
+@media (min-width: 530px) {
+.wrapper--b-margin {
+      margin-bottom: 3.875rem
+
+  }
+  }
 /*add top and bottom padding to each section of the page*/
 .page-section {
-  padding: 4.5rem 0;
+
+  padding: 1.2rem 0;
 }
+/*Media query to add bigger padding when the screen is at
+  or larger than the medium size (800px)*/
+@media (min-width: 530px) {
+.page-section {
+    padding: 4.5rem 0
+}
+  }
 .page-section--blue {
     background-color: #2f5572;
     color: #FFF;
@@ -529,10 +578,17 @@ img {
 .headline {
 	/*defaul headline text style*/
 	font-weight: 300;
-	font-size: 2.875rem;
+	font-size: 1.9rem;
 	color: #2f5572;
-	
+
 }
+/*Increase font type for medium size screens or bigger*/
+@media (min-width: 530px) {
+.headline {
+		font-size: 2.875rem
+
+}
+  }
 /*Modifier class to center headlines*/
 .headline--centered {
 		text-align: center;
@@ -541,8 +597,15 @@ img {
 		color: #d59541;
 	}
 .headline--small {
-		font-size: 1.875rem;
+		font-size: 1.2rem;
+
 	}
+@media (min-width: 530px) {
+.headline--small {
+			font-size: 1.875rem
+
+	}
+  }
 .headline--narrow {
 		/*Shrink the headline to 500px so the text is arranged in two lines*/
 		max-width: 500px;
@@ -557,15 +620,65 @@ img {
 .headline strong {
 		font-weight: 400;
 	}
-.headline--x {
+.headline--b-margin-small {
 		/*decrease bottom marghine to .5em
 		Use em instead of rem because it's relative to the font size of the element itself
 		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
 		margin-bottom: .5em;
 	}
-.headline--y {
+.headline--b-margin-large {
 		/*decrease bottom marghine to 1.5em
 		Use em instead of rem because it's relative to the font size of the element itself
 		so it can be reused on emelemt with diffeerent font sizes and it will scale nicely */
-		margin-bottom: 1.6em;	
+		margin-bottom: 1.6em;
 	}
+/*The following selector creates an empty space in the html with CSS
+  after all of the content of its container then the space is cleared both*/
+.row::after {
+    content: "";
+    clear: both;
+    /*for browser support*/
+    display: table;
+  }
+/*Nullify the padding right with a negative margin right applyied to the row
+  container to delete the gutter for the last column. The overflow caused
+  is deleted in the _wrapper.css file using overflow:hidden*/
+.row--gutters {
+    margin-right: -65px;
+  }
+/*Class selector gutters to provide a vertical gap between row columns
+  the > indicate that it should apply to all the inner div inside the row*/
+.row--gutters > div {
+    /*This padding right applies to all the columns of the row*/
+    padding-right: 65px;
+  }
+/*Apply 4 / 8 column layout only for screen sizes at or bigger than medium*/
+@media (min-width: 800px) {
+.row {
+    /*Class selector to set the width of a row content
+    to be 4 columms of a 12 coloumns layout. If 12 columns are 100% width
+    then 4 columns are 100/12 = 8.333 * 4 = 33.33% */
+
+    /*Class modifiers to make the first 4 columns slightly larger*/
+
+    /*Class selector for 8 column width content*/
+
+
+
+}
+    .row__medium-4 {
+      float: left;
+      width: 33.33%;
+    }
+    .row__medium-4--larger {
+      width: 37%;
+    }
+    .row__medium-8 {
+      float: left;
+      width: 66.66%;
+    }
+
+    .row__medium-8--smaller {
+      width: 63%;
+    }
+  }

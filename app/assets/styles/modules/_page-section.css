@@ -1,6 +1,13 @@
 /*add top and bottom padding to each section of the page*/
 .page-section {
-  padding: 4.5rem 0;
+
+  padding: 1.2rem 0;
+
+  /*Media query to add bigger padding when the screen is at
+  or larger than the medium size (800px)*/
+  @mixin atSmall {
+    padding: 4.5rem 0;
+  }
 
   &--blue {
     background-color: $mainBlue;

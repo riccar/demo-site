@@ -10,5 +10,11 @@ img {
  max-width: 100%;
  /*Set height to auto*/
  height: auto;
+}
 
+/*Selector rule * to apply to every singe element on the page*/
+* {
+	/*Add box-sizing:border-box to force the browser to take into account
+	the padding when calculating the total width of an object*/
+	box-sizing: border-box;
 }

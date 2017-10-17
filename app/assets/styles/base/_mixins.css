@@ -20,3 +20,16 @@
     @mixin-content;
   }
 }
+
+/*clearfix to clear elements in container when they are
+set to be float so the container knows what's its current height*/
+@define-mixin clearfix {
+  /*The following selector creates an empty space in the html with CSS
+  after all of the content of its container then the space is cleared both*/
+  &::after {
+    content: "";
+    clear: both;
+    /*for browser support*/
+    display: table;
+  }
+}
