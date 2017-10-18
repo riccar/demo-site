@@ -4,10 +4,11 @@ Generic class for content with paragraphs
 .generic-content-container {
   p {
     line-height: 1.65;
+    font-weight: 300;
+    /*to right bottom left*/
+    margin: 0 0 1.8rem 0;
 
-    margin: 1.8rem 0;
-
-    /*increase font size to 18px in rem 18/16 1.125rem for medium size 
+    /*increase font size to 18px in rem 18/16 1.125rem for medium size
     screens or larger*/
     @mixin atMedium {
         font-size: 1.125rem;

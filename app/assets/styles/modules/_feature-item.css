@@ -1,0 +1,40 @@
+/*To aligh an icon or image to the left and the text to the right
+- Create a padding-left with enough space for the image
+- Create a selector class for the image and make its position abosutely and
+  aligned to the left
+- Make the parent position relative
+*/
+
+.feature-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+
+  @mixin atSmall {
+    padding-left: 94px;
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 auto;
+    @mixin atSmall {
+      position: absolute;
+      left: 0;
+    }
+
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-top: .7em;
+    margin-bottom: .8em;
+    text-align: center;
+
+    @mixin atSmall {
+      margin-top: 1em;
+      font-size: 1.875rem;
+      text-align: left;
+    }
+  }
+
+}

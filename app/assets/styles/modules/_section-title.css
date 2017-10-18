@@ -1,0 +1,32 @@
+.section-title {
+  font-size: 2.55rem;
+  font-weight: 300;
+  text-align: center;
+
+  @mixin atMedium {
+    font-size: 3.75rem;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  &__icon {
+    /*locate icon above text for small screens*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .6rem;
+
+    @mixin atMedium {
+      /*For medium size images or larger the following sertting
+      nullify some of the default settings at the top that work for small
+      screen only*/
+      display: inline-block;
+      margin-left: 0;
+      margin-right: .5rem;
+      margin-bottom: 0;
+    }
+
+  }
+}

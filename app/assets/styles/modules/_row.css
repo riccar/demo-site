@@ -8,11 +8,21 @@
   &--gutters {
     margin-right: -65px;
   }
+
+  &--gutters-large {
+    margin-right: -100px;
+  }
+
   /*Class selector gutters to provide a vertical gap between row columns
-  the > indicate that it should apply to all the inner div inside the row*/
+  the > indicate that it should apply to all the direct children divs inside the row*/
   &--gutters > div {
     /*This padding right applies to all the columns of the row*/
     padding-right: 65px;
+  }
+
+  &--gutters-large > div {
+    /*This padding right applies to all the columns of the row*/
+    padding-right: 100px;
   }
 
   /*Add margin bottom for small size screens (default value)*/
@@ -35,6 +45,10 @@
       width: 33.33%;
     }
 
+    &__medium-6 {
+      float: left;
+      width: 50%;
+    }
     /*Class modifiers to make the first 4 columns slightly larger*/
     &__medium-4--larger {
       width: 37%;
