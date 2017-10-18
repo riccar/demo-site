@@ -1,3 +1,4 @@
+/*Style for the titles of the sections*/
 .section-title {
   font-size: 2.55rem;
   font-weight: 300;
@@ -11,6 +12,10 @@
     font-weight: 500;
   }
 
+  &--blue {
+    color: $mainBlue;
+  }
+
   &__icon {
     /*locate icon above text for small screens*/
     display: block;
@@ -19,6 +24,11 @@
     margin-bottom: .6rem;
 
     @mixin atMedium {
+      /*To lower the icon 8px for medium to large screens
+      change position to relative and add a top margin of 8px*/
+      position: relative;
+      top: 8px;
+
       /*For medium size images or larger the following sertting
       nullify some of the default settings at the top that work for small
       screen only*/

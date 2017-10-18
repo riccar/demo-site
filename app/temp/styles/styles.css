@@ -388,6 +388,7 @@ a {
 /*atSmall for screen size of 1200px*/
 /*clearfix to clear elements in container when they are
 set to be float so the container knows what's its current height*/
+/*Style for the Large Hero section*/
 .large-hero {
 	/*Create the blue bar at the bottom of the large-hero element*/
 	border-bottom: 10px solid #2f5572;
@@ -492,6 +493,7 @@ set to be float so the container knows what's its current height*/
 
 	}
   }
+/*Style for page buttons*/
 .btn {
   background-color: #2f5572;
   color: #FFF;
@@ -518,7 +520,10 @@ set to be float so the container knows what's its current height*/
 
   }
   }
-/*Add left and right padding to wrapp text*/
+/*
+Style for the different sections of the page
+This style adds left and right padding to its content
+*/
 .wrapper {
 
   /*Hide the oveflow value for elements inside the wrapper whose width
@@ -562,7 +567,7 @@ set to be float so the container knows what's its current height*/
 
   }
   }
-/*add top and bottom padding to each section of the page*/
+/*Style for the different sections of the page*/
 .page-section {
 
   padding: 1.2rem 0;
@@ -578,6 +583,13 @@ set to be float so the container knows what's its current height*/
     background-color: #2f5572;
     color: #FFF;
   }
+.page-section--testimonials {
+    /*Load the testimonials backgroup image alight to the top and centre*/
+    background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+    /*Set the image to cover the container div*/
+    background-size: cover;
+  }
+/*Style for the headline titiles and sub title*/
 .headline {
 	/*defaul headline text style*/
 	font-weight: 300;
@@ -638,6 +650,7 @@ set to be float so the container knows what's its current height*/
 .headline--no-t-margin {
 		margin-top: 0;
 	}
+/*Style for sections with rows and columns*/
 /*The following selector creates an empty space in the html with CSS
   after all of the content of its container then the space is cleared both*/
 .row::after {
@@ -710,7 +723,7 @@ set to be float so the container knows what's its current height*/
     }
   }
 /*
-Generic class for content with paragraphs
+Style for content with paragraphs
 */
 .generic-content-container p {
     line-height: 1.65;
@@ -728,6 +741,7 @@ Generic class for content with paragraphs
 .generic-content-container p a {
     font-weight: 700;
   }
+/*Style for the titles of the sections*/
 .section-title {
   font-size: 2.55rem;
   font-weight: 300;
@@ -741,6 +755,9 @@ Generic class for content with paragraphs
 .section-title strong {
     font-weight: 500;
   }
+.section-title--blue {
+    color: #2f5572;
+  }
 .section-title__icon {
     /*locate icon above text for small screens*/
     display: block;
@@ -751,6 +768,11 @@ Generic class for content with paragraphs
   }
 @media (min-width: 800px) {
 .section-title__icon {
+      /*To lower the icon 8px for medium to large screens
+      change position to relative and add a top margin of 8px*/
+      position: relative;
+      top: 8px;
+
       /*For medium size images or larger the following sertting
       nullify some of the default settings at the top that work for small
       screen only*/
@@ -761,7 +783,10 @@ Generic class for content with paragraphs
 
   }
   }
-/*To aligh an icon or image to the left and the text to the right
+/*
+Style for the Our Features section
+
+To aligh an icon or image to the left and the text to the right
 - Create a padding-left with enough space for the image
 - Create a selector class for the image and make its position abosutely and
   aligned to the left

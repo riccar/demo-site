@@ -1,3 +1,4 @@
+/*Style for sections with rows and columns*/
 .row {
 
   @mixin clearfix;

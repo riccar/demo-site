@@ -1,4 +1,7 @@
-/*Add left and right padding to wrapp text*/
+/*
+Style for the different sections of the page
+This style adds left and right padding to its content
+*/
 .wrapper {
 
   /*Hide the oveflow value for elements inside the wrapper whose width

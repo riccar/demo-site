@@ -1,3 +1,4 @@
+/*Style for the Large Hero section*/
 .large-hero {
 	/*Create the blue bar at the bottom of the large-hero element*/
 	border-bottom: 10px solid $mainBlue;

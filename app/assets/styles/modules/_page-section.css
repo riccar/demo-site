@@ -1,4 +1,4 @@
-/*add top and bottom padding to each section of the page*/
+/*Style for the different sections of the page*/
 .page-section {
 
   padding: 1.2rem 0;
@@ -12,5 +12,12 @@
   &--blue {
     background-color: $mainBlue;
     color: #FFF;
+  }
+
+  &--testimonials {
+    /*Load the testimonials backgroup image alight to the top and centre*/
+    background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+    /*Set the image to cover the container div*/
+    background-size: cover;
   }
 }
