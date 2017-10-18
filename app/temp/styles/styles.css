@@ -652,11 +652,18 @@ set to be float so the container knows what's its current height*/
 .row--gutters {
     margin-right: -65px;
   }
+.row--gutters-large {
+    margin-right: -100px;
+  }
 /*Class selector gutters to provide a vertical gap between row columns
-  the > indicate that it should apply to all the inner div inside the row*/
+  the > indicate that it should apply to all the direct children divs inside the row*/
 .row--gutters > div {
     /*This padding right applies to all the columns of the row*/
     padding-right: 65px;
+  }
+.row--gutters-large > div {
+    /*This padding right applies to all the columns of the row*/
+    padding-right: 100px;
   }
 /*Add margin bottom for small size screens (default value)*/
 .row__b-margin-until-medium {
@@ -671,7 +678,6 @@ set to be float so the container knows what's its current height*/
     /*Class selector to set the width of a row content
     to be 4 columms of a 12 coloumns layout. If 12 columns are 100% width
     then 4 columns are 100/12 = 8.333 * 4 = 33.33% */
-
     /*Class modifiers to make the first 4 columns slightly larger*/
 
     /*Class selector for 8 column width content*/
@@ -685,6 +691,11 @@ set to be float so the container knows what's its current height*/
     .row__medium-4 {
       float: left;
       width: 33.33%;
+    }
+
+    .row__medium-6 {
+      float: left;
+      width: 50%;
     }
     .row__medium-4--larger {
       width: 37%;
@@ -703,10 +714,11 @@ Generic class for content with paragraphs
 */
 .generic-content-container p {
     line-height: 1.65;
-
-    margin: 1.8rem 0;
+    font-weight: 300;
+    /*to right bottom left*/
+    margin: 0 0 1.8rem 0;
   }
-/*increase font size to 18px in rem 18/16 1.125rem for medium size 
+/*increase font size to 18px in rem 18/16 1.125rem for medium size
     screens or larger*/
 @media (min-width: 800px) {
 .generic-content-container p {
@@ -715,4 +727,80 @@ Generic class for content with paragraphs
   }
 .generic-content-container p a {
     font-weight: 700;
+  }
+.section-title {
+  font-size: 2.55rem;
+  font-weight: 300;
+  text-align: center;
+}
+@media (min-width: 800px) {
+.section-title {
+    font-size: 3.75rem
+}
+  }
+.section-title strong {
+    font-weight: 500;
+  }
+.section-title__icon {
+    /*locate icon above text for small screens*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .6rem;
+
+  }
+@media (min-width: 800px) {
+.section-title__icon {
+      /*For medium size images or larger the following sertting
+      nullify some of the default settings at the top that work for small
+      screen only*/
+      display: inline-block;
+      margin-left: 0;
+      margin-right: .5rem;
+      margin-bottom: 0
+
+  }
+  }
+/*To aligh an icon or image to the left and the text to the right
+- Create a padding-left with enough space for the image
+- Create a selector class for the image and make its position abosutely and
+  aligned to the left
+- Make the parent position relative
+*/
+.feature-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+
+}
+@media (min-width: 530px) {
+.feature-item {
+    padding-left: 94px
+
+}
+  }
+.feature-item__icon {
+    display: block;
+    margin: 0 auto;
+
+  }
+@media (min-width: 530px) {
+.feature-item__icon {
+      position: absolute;
+      left: 0
+
+  }
+  }
+.feature-item__title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-top: .7em;
+    margin-bottom: .8em;
+    text-align: center;
+  }
+@media (min-width: 530px) {
+.feature-item__title {
+      margin-top: 1em;
+      font-size: 1.875rem;
+      text-align: left
+  }
   }
