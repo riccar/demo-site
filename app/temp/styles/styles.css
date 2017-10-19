@@ -651,6 +651,11 @@ This style adds left and right padding to its content
 		margin-top: 0;
 	}
 /*Style for sections with rows and columns*/
+.row {
+
+  /*Begin equial height rules*/
+
+}
 /*The following selector creates an empty space in the html with CSS
   after all of the content of its container then the space is cleared both*/
 .row::after {
@@ -658,6 +663,11 @@ This style adds left and right padding to its content
     clear: both;
     /*for browser support*/
     display: table;
+  }
+.row--t-padding {
+    /*Since images of the testimonial were moved outside their container by
+    80px create a padding top to counteract this and keep the gap*/
+    padding-top: 80px;
   }
 /*Nullify the padding right with a negative margin right applyied to the row
   container to delete the gutter for the last column. The overflow caused
@@ -668,6 +678,9 @@ This style adds left and right padding to its content
 .row--gutters-large {
     margin-right: -100px;
   }
+.row--gutters-small {
+    margin-right: -45px;
+  }
 /*Class selector gutters to provide a vertical gap between row columns
   the > indicate that it should apply to all the direct children divs inside the row*/
 .row--gutters > div {
@@ -677,6 +690,10 @@ This style adds left and right padding to its content
 .row--gutters-large > div {
     /*This padding right applies to all the columns of the row*/
     padding-right: 100px;
+  }
+.row--gutters-small > div {
+    /*This padding right applies to all the columns of the row*/
+    padding-right: 45px;
   }
 /*Add margin bottom for small size screens (default value)*/
 .row__b-margin-until-medium {
@@ -694,8 +711,6 @@ This style adds left and right padding to its content
     /*Class modifiers to make the first 4 columns slightly larger*/
 
     /*Class selector for 8 column width content*/
-
-
 
 }
     .row__b-margin-until-medium {
@@ -722,6 +737,23 @@ This style adds left and right padding to its content
       width: 63%;
     }
   }
+/*Use flexbox to make al all the columns boxes of the same height*/
+@media (min-width: 800px) {
+.row--equal-height-at-medium {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex
+
+  }
+  }
+/*Select all the divs of this container and make them to use display flex
+    instead of float*/
+.row--equal-height-at-medium > div {
+      float: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
 /*
 Style for content with paragraphs
 */
@@ -828,4 +860,47 @@ To aligh an icon or image to the left and the text to the right
       font-size: 1.875rem;
       text-align: left
   }
+  }
+.testimonial {
+  /*assign a rgba "a" from alpha transparency to the backgroud colour*/
+  background-color: rgba(255, 255, 255, .8);
+  /*Since the text comes with a bottom padding, it only needs 1px of padding
+  for the bottom margin of the container for the text padding to show*/
+  padding: 0 1.8125rem 1px 1.8125rem;
+
+}
+.testimonial__photo {
+
+    /*To make the photo rounded use border radius of half the image size
+    and hide the image overflow so it isn't protrude outside the edgeds
+    of the container div*/
+    border-radius: 80px;
+    overflow: hidden;
+    /*make the container of the same size of the image*/
+    width: 160px;
+    height: 160px;
+    /*To center the photo make left and right margin to auto*/
+    /*Give bottom margin a -80px so the content below the image can also
+    move 80px up*/
+    margin: 0 auto -80px auto;
+    /*Make the position to relative so it can float outside the container*/
+    position: relative;
+    /*move the image up to violate the container for half its size*/
+    top: -80px;
+    /*Add a 6px border to the image*/
+    border: 6px solid rgba(255, 255, 255, .8);
+  }
+.testimonial__title {
+    color: #2f5572;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+  }
+.testimonial__subtitle {
+    color: #d59541;
+    text-align: center;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    margin: .25rem 0 1rem 0;
   }

@@ -3,6 +3,12 @@
 
   @mixin clearfix;
 
+  &--t-padding {
+    /*Since images of the testimonial were moved outside their container by
+    80px create a padding top to counteract this and keep the gap*/
+    padding-top: 80px;
+  }
+
   /*Nullify the padding right with a negative margin right applyied to the row
   container to delete the gutter for the last column. The overflow caused
   is deleted in the _wrapper.css file using overflow:hidden*/
@@ -12,6 +18,10 @@
 
   &--gutters-large {
     margin-right: -100px;
+  }
+
+  &--gutters-small {
+    margin-right: -45px;
   }
 
   /*Class selector gutters to provide a vertical gap between row columns
@@ -24,6 +34,11 @@
   &--gutters-large > div {
     /*This padding right applies to all the columns of the row*/
     padding-right: 100px;
+  }
+
+  &--gutters-small > div {
+    /*This padding right applies to all the columns of the row*/
+    padding-right: 45px;
   }
 
   /*Add margin bottom for small size screens (default value)*/
@@ -67,6 +82,20 @@
 
   }
 
+  /*Begin equial height rules*/
+  /*Use flexbox to make al all the columns boxes of the same height*/
+  &--equal-height-at-medium {
+    @mixin atMedium {
+      display: flex;
+    }
 
+    /*Select all the divs of this container and make them to use display flex
+    instead of float*/
+    & > div {
+      float: none;
+      display: flex;
+    }
+
+  }
 
 }
