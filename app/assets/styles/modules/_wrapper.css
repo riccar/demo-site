@@ -25,6 +25,30 @@ This style adds left and right padding to its content
     max-width: 976px;
   }
 
+  /*Removing padding for screens smallers than medium and keep it for
+  sceeens medium*/
+  &--no-padding-until-medium {
+    padding-left: 0;
+    padding-right: 0;
+
+    @mixin atMedium {
+      padding-left: 18px;
+      padding-right: 18px;
+
+    }
+  }
+
+  &--no-padding-until-large {
+    padding-left: 0;
+    padding-right: 0;
+
+    @mixin atLarge {
+      padding-left: 18px;
+      padding-right: 18px;
+
+    }
+  }
+
   /*Defining another wrapper modifier to specify
   that any wrapper inside a wrapper shound not have paddings.*/
   .wrapper {

@@ -82,10 +82,61 @@
 
   }
 
+  /*Apply 4 / 8 column layout only for screen sizes at or bigger than large*/
+  @mixin atLarge {
+
+    /*Remove margin bottom when screens are at midium size or larger*/
+    &__b-margin-until-large {
+      margin-bottom: 0;
+    }
+
+    /*Class selector to set the width of a row content
+    to be 4 columms of a 12 coloumns layout. If 12 columns are 100% width
+    then 4 columns are 100/12 = 8.333 * 4 = 33.33% */
+    &__large-4 {
+      float: left;
+      width: 33.33%;
+    }
+
+    &__large-6 {
+      float: left;
+      width: 50%;
+    }
+    /*Class modifiers to make the first 4 columns slightly larger*/
+    &__large-4--larger {
+      width: 37%;
+    }
+
+    /*Class selector for 8 column width content*/
+    &__large-8 {
+      float: left;
+      width: 66.66%;
+    }
+
+    &__large-8--smaller {
+      width: 63%;
+    }
+
+  }
+
   /*Begin equial height rules*/
   /*Use flexbox to make al all the columns boxes of the same height*/
   &--equal-height-at-medium {
     @mixin atMedium {
+      display: flex;
+    }
+
+    /*Select all the divs of this container and make them to use display flex
+    instead of float*/
+    & > div {
+      float: none;
+      display: flex;
+    }
+
+  }
+
+  &--equal-height-at-large {
+    @mixin atLarge {
       display: flex;
     }
 

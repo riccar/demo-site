@@ -547,6 +547,28 @@ This style adds left and right padding to its content
 .wrapper--medium {
     max-width: 976px;
   }
+/*Removing padding for screens smallers than medium and keep it for
+  sceeens medium*/
+.wrapper--no-padding-until-medium {
+    padding-left: 0;
+    padding-right: 0;
+  }
+@media (min-width: 800px) {
+.wrapper--no-padding-until-medium {
+      padding-left: 18px;
+      padding-right: 18px
+  }
+  }
+.wrapper--no-padding-until-large {
+    padding-left: 0;
+    padding-right: 0;
+  }
+@media (min-width: 1010px) {
+.wrapper--no-padding-until-large {
+      padding-left: 18px;
+      padding-right: 18px
+  }
+  }
 /*Defining another wrapper modifier to specify
   that any wrapper inside a wrapper shound not have paddings.*/
 .wrapper .wrapper {
@@ -579,15 +601,41 @@ This style adds left and right padding to its content
     padding: 4.5rem 0
 }
   }
+/*Not currently used*/
+.page-section--no-b-padding-until-medium {
+    padding-bottom: 0;
+  }
+@media (min-width: 800px) {
+.page-section--no-b-padding-until-medium {
+      padding-bottom: 4.5rem
+  }
+  }
+.page-section--no-b-padding-until-large {
+    padding-bottom: 0;
+  }
+@media (min-width: 1010px) {
+.page-section--no-b-padding-until-large {
+      padding-bottom: 4.5rem
+  }
+  }
 .page-section--blue {
     background-color: #2f5572;
     color: #FFF;
   }
 .page-section--testimonials {
-    /*Load the testimonials backgroup image alight to the top and centre*/
-    background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-    /*Set the image to cover the container div*/
-    background-size: cover;
+
+    /*Set background colour for small screens*/
+    background-color: #e0e6ef;
+
+  }
+@media (min-width: 1010px) {
+.page-section--testimonials {
+      /*Load the testimonials backgroup image alight to the top and centre*/
+      background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+      /*Set the image to cover the container div*/
+      background-size: cover
+
+  }
   }
 /*Style for the headline titiles and sub title*/
 .headline {
@@ -651,11 +699,6 @@ This style adds left and right padding to its content
 		margin-top: 0;
 	}
 /*Style for sections with rows and columns*/
-.row {
-
-  /*Begin equial height rules*/
-
-}
 /*The following selector creates an empty space in the html with CSS
   after all of the content of its container then the space is cleared both*/
 .row::after {
@@ -737,6 +780,44 @@ This style adds left and right padding to its content
       width: 63%;
     }
   }
+/*Apply 4 / 8 column layout only for screen sizes at or bigger than large*/
+@media (min-width: 1010px) {
+.row {
+
+    /*Remove margin bottom when screens are at midium size or larger*/
+
+    /*Class selector to set the width of a row content
+    to be 4 columms of a 12 coloumns layout. If 12 columns are 100% width
+    then 4 columns are 100/12 = 8.333 * 4 = 33.33% */
+    /*Class modifiers to make the first 4 columns slightly larger*/
+
+    /*Class selector for 8 column width content*/
+
+}
+    .row__b-margin-until-large {
+      margin-bottom: 0;
+    }
+    .row__large-4 {
+      float: left;
+      width: 33.33%;
+    }
+
+    .row__large-6 {
+      float: left;
+      width: 50%;
+    }
+    .row__large-4--larger {
+      width: 37%;
+    }
+    .row__large-8 {
+      float: left;
+      width: 66.66%;
+    }
+
+    .row__large-8--smaller {
+      width: 63%;
+    }
+  }
 /*Use flexbox to make al all the columns boxes of the same height*/
 @media (min-width: 800px) {
 .row--equal-height-at-medium {
@@ -749,6 +830,23 @@ This style adds left and right padding to its content
 /*Select all the divs of this container and make them to use display flex
     instead of float*/
 .row--equal-height-at-medium > div {
+      float: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+/*Begin equial height rules*/
+@media (min-width: 1010px) {
+.row--equal-height-at-large {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex
+
+  }
+  }
+/*Select all the divs of this container and make them to use display flex
+    instead of float*/
+.row--equal-height-at-large > div {
       float: none;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -866,9 +964,21 @@ To aligh an icon or image to the left and the text to the right
   background-color: rgba(255, 255, 255, .8);
   /*Since the text comes with a bottom padding, it only needs 1px of padding
   for the bottom margin of the container for the text padding to show*/
-  padding: 0 1.8125rem 1px 1.8125rem;
+
+  padding: 0 1rem 1px 1rem;
+  margin-bottom:  98px;
 
 }
+@media (min-width: 1010px) {
+.testimonial {
+    padding: 0 1.8125rem 1px 1.8125rem;
+    margin-bottom:  0
+
+}
+  }
+.testimonial--last {
+    margin-bottom: 0;
+  }
 .testimonial__photo {
 
     /*To make the photo rounded use border radius of half the image size

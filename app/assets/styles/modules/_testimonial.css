@@ -3,7 +3,18 @@
   background-color: rgba(255, 255, 255, .8);
   /*Since the text comes with a bottom padding, it only needs 1px of padding
   for the bottom margin of the container for the text padding to show*/
-  padding: 0 1.8125rem 1px 1.8125rem;
+
+  padding: 0 1rem 1px 1rem;
+  margin-bottom:  98px;
+
+  @mixin atLarge {
+    padding: 0 1.8125rem 1px 1.8125rem;
+    margin-bottom:  0;
+  }
+
+  &--last {
+    margin-bottom: 0;
+  }
 
   &__photo {
 

@@ -9,15 +9,39 @@
     padding: 4.5rem 0;
   }
 
+  /*Not currently used*/
+  &--no-b-padding-until-medium {
+    padding-bottom: 0;
+
+    @mixin atMedium {
+      padding-bottom: 4.5rem;
+    }
+  }
+
+  &--no-b-padding-until-large {
+    padding-bottom: 0;
+
+    @mixin atLarge {
+      padding-bottom: 4.5rem;
+    }
+  }
+
   &--blue {
     background-color: $mainBlue;
     color: #FFF;
   }
 
   &--testimonials {
-    /*Load the testimonials backgroup image alight to the top and centre*/
-    background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-    /*Set the image to cover the container div*/
-    background-size: cover;
+
+    /*Set background colour for small screens*/
+    background-color: #e0e6ef;
+
+    @mixin atLarge {
+      /*Load the testimonials backgroup image alight to the top and centre*/
+      background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+      /*Set the image to cover the container div*/
+      background-size: cover;
+    }
+
   }
 }
