@@ -1,0 +1,29 @@
+.primary-nav {
+
+  &--pull-right {
+    float: right;
+  }
+
+  /*The BEM apprach is broken here because the style for
+  unordered lists of links it's unlikely to change across the website
+  so we avoid assiging classes and selectors to every <ul>, <li> and <a>*/
+  ul {
+    margin: 0;
+    padding: 0;
+    @mixin clearfix;
+  }
+
+  li {
+    list-style: none;
+    float: left;
+    padding-right: 20px;
+  }
+
+  a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    padding: 12px 0;
+  }
+}

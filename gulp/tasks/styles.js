@@ -17,7 +17,11 @@ nested = require('postcss-nested'),
 cssImport = require('postcss-import'),
 
 //mixins for reusable bits of code
-mixins = require('postcss-mixins');
+mixins = require('postcss-mixins'),
+
+hexrgba = require('postcss-hexrgba');
+
+
 
 
 //Define a task called styles
@@ -28,7 +32,7 @@ gulp.task('styles', function () {
   return gulp.src('./app/assets/styles/styles.css')
 
     //pipe the postcss features or filters to be applied to the source file
-    .pipe(postcss([cssImport, mixins, cssvars, nested, autoprefixer]))
+    .pipe(postcss([cssImport, mixins, cssvars, nested, hexrgba, autoprefixer]))
 
     /*Add the on error function to tell gulp the styles
     task sucessfully ends, even though there was an error

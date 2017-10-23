@@ -1099,3 +1099,56 @@ by Gulp. Instead edit gulp/templates/sprite */
       margin-right: 1.4rem
   }
   }
+.site-header {
+  /*Add vertical padding*/
+  padding: 10px 0;
+  /*Header should be flying on top of hearo so the position is absolute*/
+  position: absolute;
+  /*Extend header page wide after shrinking because its positioned absolutely*/
+  width: 100%;
+  /*Add z-index of 2 so the header is rendered on top of the hero.*/
+  z-index: 2;
+  /*Using postcss-hexrgb to convert hex to rgb and be able to write
+  variables with colours within rgba clause */
+  background-color: rgba(47,85,114, .30);
+
+}
+.site-header__btn-container {
+    float: right;
+  }
+.site-header__logo {
+    position: absolute;
+    background-color: #2f5572;
+    padding: 25px 36px;
+    top: 0;
+  }
+.primary-nav--pull-right {
+    float: right;
+  }
+/*The BEM apprach is broken here because the style for
+  unordered lists of links it's unlikely to change across the website
+  so we avoid assiging classes and selectors to every <ul>, <li> and <a>*/
+.primary-nav ul {
+    margin: 0;
+    padding: 0;
+  }
+/*The following selector creates an empty space in the html with CSS
+  after all of the content of its container then the space is cleared both*/
+.primary-nav ul::after {
+    content: "";
+    clear: both;
+    /*for browser support*/
+    display: table;
+  }
+.primary-nav li {
+    list-style: none;
+    float: left;
+    padding-right: 20px;
+  }
+.primary-nav a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    padding: 12px 0;
+  }

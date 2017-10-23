@@ -17,4 +17,6 @@ easy to mantein*/
 @import "modules/_feature-item";
 @import "modules/_testimonial";
 @import "modules/_sprite";
-@import "modules/_site-footer"
+@import "modules/_site-footer";
+@import "modules/_site-header";
+@import "modules/_primary-nav";

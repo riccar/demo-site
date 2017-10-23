@@ -1,0 +1,25 @@
+.site-header {
+  /*Add vertical padding*/
+  padding: 10px 0;
+  /*Header should be flying on top of hearo so the position is absolute*/
+  position: absolute;
+  /*Extend header page wide after shrinking because its positioned absolutely*/
+  width: 100%;
+  /*Add z-index of 2 so the header is rendered on top of the hero.*/
+  z-index: 2;
+  /*Using postcss-hexrgb to convert hex to rgb and be able to write
+  variables with colours within rgba clause */
+  background-color: rgba($mainBlue, .30);
+
+  &__btn-container {
+    float: right;
+  }
+
+  &__logo {
+    position: absolute;
+    background-color: $mainBlue;
+    padding: 25px 36px;
+    top: 0;
+  }
+
+}
