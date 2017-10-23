@@ -522,7 +522,7 @@ set to be float so the container knows what's its current height*/
   }
 /*
 Style for the different sections of the page
-This style adds left and right padding to its content
+This style adds left and right padding so all the content is located at the center of the screen
 */
 .wrapper {
 
@@ -1078,4 +1078,24 @@ by Gulp. Instead edit gulp/templates/sprite */
     width: 34.75px;
     height: 42px;
     background-position: 36.69752421959096% 45.792307692307695%;
+  }
+.site-footer {
+  background-color: #2f5572;
+  padding: .5rem 0;
+  color: #FFF;
+  text-align: center;
+}
+/*Create a line break after the footer text and button for small screens*/
+.site-footer__text {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 300;
+  }
+@media (min-width: 800px) {
+.site-footer__text {
+      /*Display text and button on the same line*/
+      display: inline;
+      margin-bottom: 0;
+      margin-right: 1.4rem
+  }
   }
