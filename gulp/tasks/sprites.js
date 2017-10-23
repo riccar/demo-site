@@ -3,7 +3,8 @@ and saves them to the destination folder*/
 
 var gulp = require('gulp'),
 svgSprite = require('gulp-svg-sprite'),
-rename = require('gulp-rename');
+rename = require('gulp-rename'),
+del = require('del');
 
 /*Sprite configuration object*/
 var config = {
@@ -20,6 +21,13 @@ var config = {
   }
 };
 
+/*
+Deletes the following folders to avoid keeping old sprites files every time
+changes are done to the icons and the new sprite is generated
+*/
+gulp.task('beginClean', function() {
+  return del(['./app/temp/sprite', './app/assets/images/sprites']);
+});
 
 /*
 Create the sprite.svg file using the icons in assets/images/icons
@@ -27,7 +35,7 @@ and copy the new .svg file to the temp/sprite folder.
 In addition generate the sprites.css file into the
 ./app/temp/sprite folder
 */
-gulp.task('createSprite', function() {
+gulp.task('createSprite', ['beginClean'], function() {
   return gulp.src('./app/assets/images/icons/**/*.svg')
     .pipe(svgSprite(config))
     .pipe(gulp.dest('./app/temp/sprite/'));
@@ -54,6 +62,14 @@ gulp.task('copySpriteCSS', ['createSprite'], function() {
 });
 
 /*
+Delete the temp/sprite folder after the sprite.svg and sprite.css are
+copied to the assets folder
+*/
+gulp.task('endClean', ['copySpriteGraphic', 'copySpriteCSS'], function() {
+  return del('./app/temp/sprite');
+});
+
+/*
 Compile above tasks into one so they can be run together
 */
-gulp.task('icons', ['createSprite', 'copySpriteGraphic', 'copySpriteCSS']);
+gulp.task('icons', ['beginClean', 'createSprite', 'copySpriteGraphic', 'copySpriteCSS', 'endClean']);
