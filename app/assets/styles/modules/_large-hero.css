@@ -20,6 +20,7 @@
 
 	/*Modifier class to style text conent within large-hero*/
 	&__text-content {
+		padding-top: 88px;
 		/*change position to absolute so the text is located on top of the large-hero image*/
 		position: absolute;
 		/*Shift the text 50% down from the top and use the transform translate
@@ -31,6 +32,10 @@
 		/*change width to 100% and align to center so it can be centered*/
 		width: 100%;
 		text-align: center;
+
+		@mixin atMedium {
+			padding-top: 60px;
+		}
 	}
 
 	&__title {
@@ -86,7 +91,7 @@
 		*/
 		font-size: 1.1rem;
 		/*Remove boldness*/
-		font-weight: 100;
+		font-weight: 300;
 		/*add shadow of 10% visibiity*/
 		text-shadow: 2px 2px 0 rgba(0, 0, 0, .1) ;
 		/*Split the description text in two lines

@@ -7,9 +7,12 @@
   width: 100%;
   /*Add z-index of 2 so the header is rendered on top of the hero.*/
   z-index: 2;
-  /*Using postcss-hexrgb to convert hex to rgb and be able to write
-  variables with colours within rgba clause */
-  background-color: rgba($mainBlue, .30);
+
+  @mixin atMedium {
+    /*Using postcss-hexrgb to convert hex to rgb and be able to write
+    variables with colours within rgba clause */
+    background-color: rgba($mainBlue, .30);
+  }
 
   &__btn-container {
     float: right;
@@ -20,6 +23,56 @@
     background-color: $mainBlue;
     padding: 25px 36px;
     top: 0;
+    /*Align logo for small screens by shifting to the left 50%
+    and then transform translate minus 50%*/
+    left: 50%;
+    /*Scale log size to 80% of its size*/
+    transform: translateX(-50%) scale(.8);
+    /*Change the transform origin from the center of the element
+    to the center-top 50% from the left and 0% from the top*/
+    transform-origin: 50% 0;
+
+    /*Repositioning the logo for medium to large screens*/
+    @mixin atMedium {
+      left: auto;
+      transform: translateX(0);
+    }
+
+  }
+
+  /*Company name was added to the header logo for SEO purposes
+  therefore the following class hide this text from the logo
+  by moving it to the right by a big value*/
+  &__logo__graphic {
+    text-indent: -9999px;
+  }
+
+  /*Draw menu icon for small screen*/
+  &__menu-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #FFF;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    /*Hide menu icon for small screen*/
+    @mixin atMedium {
+      display: none;
+    }
+
+  }
+
+
+  /*Hidide menu content for small screens*/
+  &__menu-content {
+    display: none;
+
+    /*Show menu content for medium or large screens*/
+    @mixin atMedium {
+      display: block;
+    }
+
   }
 
 }
