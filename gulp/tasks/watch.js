@@ -19,18 +19,25 @@ gulp.task('watch', function () {
     }
   });
 
-  //Define the watch function for the index.html file
+  /*Define the watch function for the index.html file
+  watch function triggers when the five file or any file in the given
+  path is saved*/
   watch('./app/index.html', function () {
     //Reload browser when the index.html changes
     browserSync.reload();
   });
 
-  //Define the watch function for any css file
+  //Watch for any change to the css files
   //the double asterisk includes any other or future sub folders
   watch('./app/assets/styles/**/*.css', function () {
     //star the task cssInject when any css in above path changes
     gulp.start('cssInject');
 
+  });
+
+  /*Watch for any change to the script files*/
+  watch('./app/assets/scripts/**/*.js', function() {
+    gulp.start('scriptsRefresh');
   });
 
 });
@@ -49,4 +56,10 @@ gulp.task('cssInject', ['styles'], function () {
     //and any modification done to it.
     .pipe(browserSync.stream());
 
+});
+
+/*Execute task scriptRefresh after script finishes.
+ScriptRefresh watches the scripts folder for any change and reload the browser*/
+gulp.task('scriptsRefresh', ['scripts'], function() {
+  browserSync.reload();
 });

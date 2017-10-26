@@ -11,5 +11,21 @@ module.exports = {
     //OS directory
     path: path.resolve(__dirname, "./app/temp/scripts"),
     filename: "App.js"
+  },
+  //add a new module to bundle javascrip conversion through Babel
+  module : {
+    loaders: [
+      {
+        //load the babel-loader module
+        loader: 'babel-loader',
+        query: {
+          //use es2015 standard (there is already an es2016)
+          presets: ['es2015']
+        },
+        //Regex to apply this loader to javascrit files only
+        test: /\.js$/,
+        exclude: /node_modules/
+      }
+    ]
   }
-}
+};
