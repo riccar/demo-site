@@ -1114,6 +1114,10 @@ by Gulp. Instead edit gulp/templates/sprite */
   width: 100%;
   /*Add z-index of 2 so the header is rendered on top of the hero.*/
   z-index: 2;
+  /*Define an animation for the background color of the type ease-out
+  to last .3 secs */
+  -webkit-transition: background-color .3s ease-out;
+  transition: background-color .3s ease-out;
 
 }
 @media (min-width: 800px) {
@@ -1124,8 +1128,16 @@ by Gulp. Instead edit gulp/templates/sprite */
 
 }
   }
+/*Toggle class to apply background colour when the main menu is expanded*/
+.site-header--is-expanded {
+    background-color: rgba(47,85,114, .65);
+  }
+/*Float button container to the right*/
+@media (min-width: 800px) {
 .site-header__btn-container {
-    float: right;
+      float: right
+
+  }
   }
 .site-header__logo {
     position: absolute;
@@ -1162,34 +1174,150 @@ by Gulp. Instead edit gulp/templates/sprite */
 /*Draw menu icon for small screen*/
 .site-header__menu-icon {
     width: 20px;
-    height: 20px;
-    background-color: #FFF;
+    height: 19px;
     position: absolute;
     top: 10px;
     right: 15px;
+    /*Keep icon on top of its content so it's clicable at all times*/
+    z-index: 10;
 
+    /*Menu icon bars*/
   }
+/*Crate an empty div (pseudo element) before the middle div and apply below
+    style to create the first bar*/
+.site-header__menu-icon::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      /*Change the transform origin (pivot point) to the top left instead of the center (50% 50%)
+      so it can rotate from its top left during the animation*/
+      -webkit-transform-origin: 0 0;
+              transform-origin: 0 0;
+      /*Animate the transform effect to be transitioned during .3 secs instead of
+      instant*/
+      -webkit-transition: -webkit-transform .3s ease-out;
+      transition: -webkit-transform .3s ease-out;
+      transition: transform .3s ease-out;
+      transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+    }
+/*Middle bar*/
+.site-header__menu-icon__middle {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      -webkit-transition: all .3s ease-out;
+      transition: all .3s ease-out;
+      /*Set the transform origin to horizontally 0 (left edge)
+      and vertically 50 (middle width)%*/
+      -webkit-transform-origin: 0 50%;
+              transform-origin: 0 50%;
+    }
+/*Crate an empty div (pseudo element) after the middle div and apply below
+    style to create the last bar*/
+.site-header__menu-icon::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      /*Change the transform origin (pivot point) to the bottom left instead of the center (50% 50%)
+      so it can rotate from its top left during the animation*/
+      -webkit-transform-origin: 0 100%;
+              transform-origin: 0 100%;
+      -webkit-transition: -webkit-transform .3s ease-out;
+      transition: -webkit-transform .3s ease-out;
+      transition: transform .3s ease-out;
+      transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+    }
 /*Hide menu icon for small screen*/
 @media (min-width: 800px) {
 .site-header__menu-icon {
       display: none
-
   }
   }
-/*Hidide menu content for small screens*/
+.site-header__menu-icon--close-x::before {
+      -webkit-transform: rotate(45deg) scaleX(1.25);
+              transform: rotate(45deg) scaleX(1.25);
+    }
+.site-header__menu-icon--close-x .site-header__menu-icon__middle {
+      
+       -webkit-transform: scaleX(0);
+      
+               transform: scaleX(0);
+    }
+.site-header__menu-icon--close-x::after {
+      /*Rotet 45 degrees counterclock wise, horizontally scale 25% and
+      tranlate vertically 1px*/
+      -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+              transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+    }
+/*Main menu content*/
 .site-header__menu-content {
-    display: none;
+    /*Hide its content as initial state. Compared to display: none
+    It's still present in the page but hidden*/
+    opacity: 0;
+    /*scale content to 1.2 times its original size*/
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    /*Animate all (opacity, z-index and scale) properties of the menu content from 0 to 1 in .3 seconds using
+    the ease-out effect*/
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    /*Make position relative and z-index negative so the content can't be clicked
+    when hidden by opacity: 0*/
+    position: relative;;
+    z-index: -10;
+    padding-top: 90px;
+    text-align: center;
 
   }
 /*Show menu content for medium or large screens*/
 @media (min-width: 800px) {
 .site-header__menu-content {
-      display: block
+      /*Make the object visible and clickable for medium to large screens*/
+      opacity: 1;
+      z-index: 1;
+      padding-top: 0;
+      /*Keep original scale for midium to large screens*/
+      -webkit-transform: scale(1);
+              transform: scale(1)
 
   }
   }
+/*Toggle class to display menu content on small screens*/
+.site-header__menu-content--is-visible {
+      /*Make the content visible by changing opacity to 1*/
+      opacity: 1;
+      /*Make the object clicable when visible*/
+      z-index: 1;
+      /*Change content scale back to original size*/
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+.primary-nav {
+
+  /*Add space between the nav items and the top icon*/
+  padding-top: 10px;
+}
+@media (min-width: 800px) {
+.primary-nav {
+    padding-top: 0
+}
+  }
+@media (min-width: 800px) {
 .primary-nav--pull-right {
-    float: right;
+      float: right
+
+  }
   }
 /*The BEM apprach is broken here because the style for
   unordered lists of links it's unlikely to change across the website
@@ -1208,13 +1336,45 @@ by Gulp. Instead edit gulp/templates/sprite */
   }
 .primary-nav li {
     list-style: none;
-    float: left;
-    padding-right: 20px;
+    /*Align items horizontally*/
+    display: inline-block;
+    /*creates a padding right between each item*/
+    padding-right: 7px;
+
+
+  }
+@media (min-width: 800px) {
+.primary-nav li {
+      float: left;
+      display: block;
+      padding-right: 20px
+
+
+  }
+  }
+/*Remove padding right of last item to acommodate items on the same line
+  for small screens*/
+.primary-nav li li:last-child {
+    padding-right: 0;
+  }
+@media (min-width: 800px) {
+.primary-nav li li:last-child {
+      padding-right: 20px
+  }
   }
 .primary-nav a {
     color: #FFF;
     text-decoration: none;
     font-weight: 300;
     display: block;
-    padding: 12px 0;
+    padding: 5px 8px;
+    font-size: .8rem;
+    background-color: rgba(47,85,114, .5);
+  }
+@media (min-width: 800px) {
+.primary-nav a {
+      font-size: 1rem;
+      padding: 12px 0;
+      background-color: transparent
+  }
   }

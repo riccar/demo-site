@@ -1,7 +1,18 @@
 .primary-nav {
 
+  /*Add space between the nav items and the top icon*/
+  padding-top: 10px;
+
+  @mixin atMedium {
+    padding-top: 0;
+  }
+
   &--pull-right {
-    float: right;
+
+    @mixin atMedium {
+      float: right;
+    }
+
   }
 
   /*The BEM apprach is broken here because the style for
@@ -15,8 +26,28 @@
 
   li {
     list-style: none;
-    float: left;
-    padding-right: 20px;
+    /*Align items horizontally*/
+    display: inline-block;
+    /*creates a padding right between each item*/
+    padding-right: 7px;
+
+    @mixin atMedium {
+      float: left;
+      display: block;
+      padding-right: 20px;
+    }
+
+  /*Remove padding right of last item to acommodate items on the same line
+  for small screens*/
+  li:last-child {
+    padding-right: 0;
+
+    @mixin atMedium {
+      padding-right: 20px
+    }
+  }
+
+
   }
 
   a {
@@ -24,6 +55,14 @@
     text-decoration: none;
     font-weight: 300;
     display: block;
-    padding: 12px 0;
+    padding: 5px 8px;
+    font-size: .8rem;
+    background-color: rgba($mainBlue, .5);
+
+    @mixin atMedium {
+      font-size: 1rem;
+      padding: 12px 0;
+      background-color: transparent;
+    }
   }
 }

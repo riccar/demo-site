@@ -7,6 +7,9 @@
   width: 100%;
   /*Add z-index of 2 so the header is rendered on top of the hero.*/
   z-index: 2;
+  /*Define an animation for the background color of the type ease-out
+  to last .3 secs */
+  transition: background-color .3s ease-out;
 
   @mixin atMedium {
     /*Using postcss-hexrgb to convert hex to rgb and be able to write
@@ -14,8 +17,18 @@
     background-color: rgba($mainBlue, .30);
   }
 
+  /*Toggle class to apply background colour when the main menu is expanded*/
+  &--is-expanded {
+    background-color: rgba($mainBlue, .65);
+  }
+
+  /*Float button container to the right*/
   &__btn-container {
-    float: right;
+
+    @mixin atMedium {
+      float: right;
+    }
+
   }
 
   &__logo {
@@ -50,27 +63,120 @@
   /*Draw menu icon for small screen*/
   &__menu-icon {
     width: 20px;
-    height: 20px;
-    background-color: #FFF;
+    height: 19px;
     position: absolute;
     top: 10px;
     right: 15px;
+    /*Keep icon on top of its content so it's clicable at all times*/
+    z-index: 10;
+
+    /*Menu icon bars*/
+    /*Crate an empty div (pseudo element) before the middle div and apply below
+    style to create the first bar*/
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      /*Change the transform origin (pivot point) to the top left instead of the center (50% 50%)
+      so it can rotate from its top left during the animation*/
+      transform-origin: 0 0;
+      /*Animate the transform effect to be transitioned during .3 secs instead of
+      instant*/
+      transition: transform .3s ease-out;
+    }
+
+    /*Middle bar*/
+    &__middle {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      transition: all .3s ease-out;
+      /*Set the transform origin to horizontally 0 (left edge)
+      and vertically 50 (middle width)%*/
+      transform-origin: 0 50%;
+    }
+
+    /*Crate an empty div (pseudo element) after the middle div and apply below
+    style to create the last bar*/
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: #FFF;
+      /*Change the transform origin (pivot point) to the bottom left instead of the center (50% 50%)
+      so it can rotate from its top left during the animation*/
+      transform-origin: 0 100%;
+      transition: transform .3s ease-out;
+    }
 
     /*Hide menu icon for small screen*/
     @mixin atMedium {
       display: none;
     }
-
   }
 
+  &__menu-icon--close-x {
+    &::before {
+      transform: rotate(45deg) scaleX(1.25);
+    }
 
-  /*Hidide menu content for small screens*/
+    .site-header__menu-icon__middle {
+      
+       transform: scaleX(0);
+    }
+
+    &::after {
+      /*Rotet 45 degrees counterclock wise, horizontally scale 25% and
+      tranlate vertically 1px*/
+      transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+    }
+  }
+
+  /*Main menu content*/
   &__menu-content {
-    display: none;
+    /*Hide its content as initial state. Compared to display: none
+    It's still present in the page but hidden*/
+    opacity: 0;
+    /*scale content to 1.2 times its original size*/
+    transform: scale(1.2);
+    /*Animate all (opacity, z-index and scale) properties of the menu content from 0 to 1 in .3 seconds using
+    the ease-out effect*/
+    transition: all .3s ease-out;
+    /*Make position relative and z-index negative so the content can't be clicked
+    when hidden by opacity: 0*/
+    position: relative;;
+    z-index: -10;
+    padding-top: 90px;
+    text-align: center;
 
     /*Show menu content for medium or large screens*/
     @mixin atMedium {
-      display: block;
+      /*Make the object visible and clickable for medium to large screens*/
+      opacity: 1;
+      z-index: 1;
+      padding-top: 0;
+      /*Keep original scale for midium to large screens*/
+      transform: scale(1);
+    }
+
+    /*Toggle class to display menu content on small screens*/
+    &--is-visible {
+      /*Make the content visible by changing opacity to 1*/
+      opacity: 1;
+      /*Make the object clicable when visible*/
+      z-index: 1;
+      /*Change content scale back to original size*/
+      transform: scale(1);
     }
 
   }
