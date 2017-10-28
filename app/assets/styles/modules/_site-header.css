@@ -131,8 +131,8 @@
     }
 
     .site-header__menu-icon__middle {
-      
-       transform: scaleX(0);
+      opacity: 0;
+      transform: scaleX(0);
     }
 
     &::after {

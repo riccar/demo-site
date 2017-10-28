@@ -1249,10 +1249,9 @@ by Gulp. Instead edit gulp/templates/sprite */
               transform: rotate(45deg) scaleX(1.25);
     }
 .site-header__menu-icon--close-x .site-header__menu-icon__middle {
-      
-       -webkit-transform: scaleX(0);
-      
-               transform: scaleX(0);
+      opacity: 0;
+      -webkit-transform: scaleX(0);
+              transform: scaleX(0);
     }
 .site-header__menu-icon--close-x::after {
       /*Rotet 45 degrees counterclock wise, horizontally scale 25% and
@@ -1377,4 +1376,16 @@ by Gulp. Instead edit gulp/templates/sprite */
       padding: 12px 0;
       background-color: transparent
   }
+  }
+.reveal-item {
+  opacity: 0;
+  -webkit-transition: all 1.5s ease-out;
+  transition: all 1.5s ease-out;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+.reveal-item--is-visible {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
