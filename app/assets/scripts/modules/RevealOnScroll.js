@@ -25,7 +25,7 @@ class RevealOnScroll {
 
   /*Create waypoints for each item*/
   createWaypoints() {
-    //Create a variable to hold this pointer so it can be used wihtin the waypoint creation
+    //Create a variable to hold this pointer so it can be used within the waypoint creation
     var revealOnScroll = this;
     //Execute the following function for each element in itemsToReveal
     this.itemsToReveal.each(function() {
@@ -35,7 +35,7 @@ class RevealOnScroll {
       new Waypoint({
         //Set the watching element to the current item
         element: currentItem,
-        //Define the handle function once the element is visible via scrolling
+        //Function to execute when the trigger element is found
         handler: function() {
           $(currentItem).addClass("reveal-item--is-visible");
         },

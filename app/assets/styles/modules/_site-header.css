@@ -12,9 +12,15 @@
   transition: background-color .3s ease-out;
 
   @mixin atMedium {
+    /*Fix header to the top of the page even when scrolling*/
+    position: fixed;
     /*Using postcss-hexrgb to convert hex to rgb and be able to write
     variables with colours within rgba clause */
     background-color: rgba($mainBlue, .30);
+
+    &--dark {
+      background-color: rgba(23, 51, 72, .85);
+    }
   }
 
   /*Toggle class to apply background colour when the main menu is expanded*/
@@ -44,13 +50,19 @@
     /*Change the transform origin from the center of the element
     to the center-top 50% from the left and 0% from the top*/
     transform-origin: 50% 0;
+    transition: transform .3s ease-out;
 
     /*Repositioning the logo for medium to large screens*/
     @mixin atMedium {
       left: auto;
       transform: translateX(0);
-    }
 
+      .site-header--dark & {
+        transform: scale(.57);
+
+      }
+     
+    }
   }
 
   /*Company name was added to the header logo for SEO purposes

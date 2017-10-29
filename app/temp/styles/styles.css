@@ -1122,11 +1122,17 @@ by Gulp. Instead edit gulp/templates/sprite */
 }
 @media (min-width: 800px) {
 .site-header {
+    /*Fix header to the top of the page even when scrolling*/
+    position: fixed;
     /*Using postcss-hexrgb to convert hex to rgb and be able to write
     variables with colours within rgba clause */
     background-color: rgba(47,85,114, .30)
 
 }
+
+    .site-header--dark {
+      background-color: rgba(23, 51, 72, .85);
+    }
   }
 /*Toggle class to apply background colour when the main menu is expanded*/
 .site-header--is-expanded {
@@ -1154,7 +1160,10 @@ by Gulp. Instead edit gulp/templates/sprite */
     to the center-top 50% from the left and 0% from the top*/
     -webkit-transform-origin: 50% 0;
             transform-origin: 50% 0;
-
+    -webkit-transition: -webkit-transform .3s ease-out;
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out, -webkit-transform .3s ease-out;
   }
 /*Repositioning the logo for medium to large screens*/
 @media (min-width: 800px) {
@@ -1162,8 +1171,13 @@ by Gulp. Instead edit gulp/templates/sprite */
       left: auto;
       -webkit-transform: translateX(0);
               transform: translateX(0)
-
   }
+
+      .site-header--dark .site-header__logo {
+        -webkit-transform: scale(.57);
+                transform: scale(.57);
+
+      }
   }
 /*Company name was added to the header logo for SEO purposes
   therefore the following class hide this text from the logo
@@ -1373,9 +1387,14 @@ by Gulp. Instead edit gulp/templates/sprite */
 @media (min-width: 800px) {
 .primary-nav a {
       font-size: 1rem;
+      font-weight: 400;
       padding: 12px 0;
       background-color: transparent
   }
+
+      .primary-nav a.is-current-link {
+        color: #fabb69;
+      }
   }
 .reveal-item {
   opacity: 0;

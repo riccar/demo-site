@@ -14,7 +14,7 @@ class MobileMenu {
     this.menuContent = $(".site-header__menu-content");
     /*call the events() function at object construction to be available to the
     browser on page load*/
-    // this.events();
+    this.events();
   }
 
   //Declare the events for the different objects of the menu
