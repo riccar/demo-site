@@ -18,7 +18,7 @@ class RevealOnScroll {
   
   }
  
-  /*Hide the itmes initially*/
+  /*Hide the items initially*/
   hideInitially() {
     this.itemsToReveal.addClass("reveal-item");
   }

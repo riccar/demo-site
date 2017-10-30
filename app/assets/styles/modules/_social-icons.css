@@ -1,0 +1,32 @@
+.social-icons {
+  text-align: center;
+
+  &__icon {
+    background-color: $mainOrange;
+    /*Display icons on a single line and allows them to receive a custom height*/
+    display: inline-block;
+    margin: 0 5px 5px 5px;
+    /*increase width for tiny screens so icons appear in two rows*/
+    width: 33%;
+    height: 72px;
+    position: relative;
+
+    /*Keep current width for small screens or bigger and reduce its width for tiny screens so incons appear in two rows of two icons*/
+    @mixin atSmall {
+      width: 72px;
+      margin: 0 5px;
+    }
+
+    /*Target the span element*/
+    .icon {
+      /*allow icons to apply the automated sprite width and height*/
+      display: block;
+      /*Position the icons so they can be centered within their container*/
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /*After mooving contained items 50% from the top and the left, translate them half their width and height back to the top and left so they are centered within their container*/
+      transform: translate(-50%, -50%);
+    }
+  }
+}

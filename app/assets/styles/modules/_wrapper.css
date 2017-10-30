@@ -25,6 +25,10 @@ This style adds left and right padding so all the content is located at the cent
     max-width: 976px;
   }
 
+  &--narrow {
+    max-width: 470px;
+  }
+
   /*Removing padding for screens smallers than medium and keep it for
   sceeens medium*/
   &--no-padding-until-medium {

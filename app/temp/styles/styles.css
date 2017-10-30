@@ -553,6 +553,9 @@ This style adds left and right padding so all the content is located at the cent
 .wrapper--medium {
     max-width: 976px;
   }
+.wrapper--narrow {
+    max-width: 470px;
+  }
 /*Removing padding for screens smallers than medium and keep it for
   sceeens medium*/
 .wrapper--no-padding-until-medium {
@@ -893,6 +896,10 @@ Style for content with paragraphs
   }
 .section-title--blue {
     color: #2f5572;
+  }
+.section-title--less-margin {
+    margin-bottom: 1.3rem;
+    margin-top: 0;
   }
 .section-title__icon {
     /*locate icon above text for small screens*/
@@ -1408,3 +1415,100 @@ by Gulp. Instead edit gulp/templates/sprite */
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+.modal {
+  /*Locate the modal at the front of the screen*/
+  position: fixed;
+  /*Modal should be on top of other elements*/
+  z-index: 5;
+  /*Add a transparente white background*/
+  background-color: rgba(255, 255, 255, .94);
+  /*Make the modal to take out the full height*/
+  top: 0;
+  bottom: 0;
+  /*Make the modal to take the full width*/
+  left: 0;
+  right: 0;
+  /*Initially the modal is hidden*/
+  opacity: 0;
+  visibility: hidden;
+  /*Apply an effect when the modal opens by making it slightly bigger when hidden and transition to its regular size in 300ms*/
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  
+}
+/*Make the modal visible*/
+.modal--is-visible {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+/*Modal inner content*/
+.modal__inner {
+    position: absolute;
+    width: 100%;
+    /*push content down 50% and translate up 50% of its own height to center*/
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+/*Modal description*/
+.modal__description {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+/*Style for the close icon which is a letter X*/
+.modal__close { 
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    /*Make the close icon bigger*/
+    font-size: 2rem;
+    -webkit-transform: scaleX(1.2);
+            transform: scaleX(1.2);
+    /*change origin to the top left corner so it can grow from top-left to bottom-right*/
+    -webkit-transform-origin: 100% 0;
+            transform-origin: 100% 0;
+    color: #2f5572;
+    /*Change cursor to pointer*/
+    cursor: pointer;
+  }
+.modal__close:hover {
+      color: #d59541;
+    }
+.social-icons {
+  text-align: center;
+}
+.social-icons__icon {
+    background-color: #d59541;
+    /*Display icons on a single line and allows them to receive a custom height*/
+    display: inline-block;
+    margin: 0 5px 5px 5px;
+    /*increase width for tiny screens so icons appear in two rows*/
+    width: 33%;
+    height: 72px;
+    position: relative;
+  }
+/*Keep current width for small screens or bigger and reduce its width for tiny screens so incons appear in two rows of two icons*/
+@media (min-width: 530px) {
+.social-icons__icon {
+      width: 72px;
+      margin: 0 5px
+  }
+  }
+/*Target the span element*/
+.social-icons__icon .icon {
+      /*allow icons to apply the automated sprite width and height*/
+      display: block;
+      /*Position the icons so they can be centered within their container*/
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /*After mooving contained items 50% from the top and the left, translate them half their width and height back to the top and left so they are centered within their container*/
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }

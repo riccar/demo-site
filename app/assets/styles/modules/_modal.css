@@ -1,0 +1,64 @@
+.modal {
+  /*Locate the modal at the front of the screen*/
+  position: fixed;
+  /*Modal should be on top of other elements*/
+  z-index: 5;
+  /*Add a transparente white background*/
+  background-color: rgba(255, 255, 255, .94);
+  /*Make the modal to take out the full height*/
+  top: 0;
+  bottom: 0;
+  /*Make the modal to take the full width*/
+  left: 0;
+  right: 0;
+  /*Initially the modal is hidden*/
+  opacity: 0;
+  visibility: hidden;
+  /*Apply an effect when the modal opens by making it slightly bigger when hidden and transition to its regular size in 300ms*/
+  transform: scale(1.2);
+  transition: all .3s ease-out;
+
+  /*Make the modal visible*/
+  &--is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  /*Modal inner content*/
+  &__inner {
+    position: absolute;
+    width: 100%;
+    /*push content down 50% and translate up 50% of its own height to center*/
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /*Modal description*/
+  &__description {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /*Style for the close icon which is a letter X*/
+  &__close { 
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    /*Make the close icon bigger*/
+    font-size: 2rem;
+    transform: scaleX(1.2);
+    /*change origin to the top left corner so it can grow from top-left to bottom-right*/
+    transform-origin: 100% 0;
+    color: $mainBlue;
+    /*Change cursor to pointer*/
+    cursor: pointer;
+
+    &:hover {
+      color: $mainOrange;
+    }
+  }
+  
+}

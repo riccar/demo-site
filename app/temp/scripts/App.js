@@ -11109,12 +11109,17 @@ var _StickyHeader = __webpack_require__(5);
 
 var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
 
+var _Modal = __webpack_require__(7);
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _MobileMenu2.default();
 new _RevealOnScroll2.default((0, _jquery2.default)(".feature-item"), "85%");
 new _RevealOnScroll2.default((0, _jquery2.default)(".testimonial"), "60%");
 var stickyHeader = new _StickyHeader2.default();
+var modal = new _Modal2.default();
 
 /***/ }),
 /* 3 */
@@ -11132,7 +11137,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      by clicking when tapping the right-hand icon
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
-//Import jquery for easely access DOM
+//Import jquery for easily access DOM
 
 
 var _jquery = __webpack_require__(0);
@@ -11173,7 +11178,7 @@ var MobileMenu = function () {
   }, {
     key: "toggleTheMenu",
     value: function toggleTheMenu() {
-      /*Toggle the following clases to the differnt menu items to change appearance
+      /*Toggle the following classes to the different menu items to change appearance
       Toggle function adds and remove the class without affecting original ones*/
 
       this.menuContent.toggleClass("site-header__menu-content--is-visible");
@@ -11227,7 +11232,7 @@ var RevealOnScroll = function () {
     this.createWaypoints();
   }
 
-  /*Hide the itmes initially*/
+  /*Hide the items initially*/
 
 
   _createClass(RevealOnScroll, [{
@@ -11763,6 +11768,72 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 }));
 
 
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Modal = function () {
+  function Modal() {
+    _classCallCheck(this, Modal);
+
+    //Access the following elements through jquery class selector
+    //Get in touch button
+    this.openModalButton = (0, _jquery2.default)(".open-modal");
+    //modal screen
+    this.modal = (0, _jquery2.default)(".modal");
+    //modal close X icon
+    this.closeModalButton = (0, _jquery2.default)(".modal__close");
+    //call the event function to be accessible on page load so it can be listen to the event immediately
+    this.events();
+  }
+
+  _createClass(Modal, [{
+    key: "events",
+    value: function events() {
+      //Open modal when clicking the open modal button event. Item is bound to the main class
+      this.openModalButton.click(this.openModal.bind(this));
+      //Close modal when clicking the X close modal button
+      this.closeModalButton.click(this.closeModal.bind(this));
+      //Close modal when ESC key is pressed
+    }
+  }, {
+    key: "openModal",
+    value: function openModal() {
+      //Add CSS class to show the modal
+      this.modal.addClass("modal--is-visible");
+      //Return false to avoid scrolling up when the open modal button with href="#" is clicked 
+      return false;
+    }
+  }, {
+    key: "closeModal",
+    value: function closeModal() {
+      //Remove CSS class to hide the modal
+      this.modal.removeClass("modal--is-visible");
+    }
+  }]);
+
+  return Modal;
+}();
+
+exports.default = Modal;
 
 /***/ })
 /******/ ]);
