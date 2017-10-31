@@ -18,8 +18,16 @@ class Modal {
     this.openModalButton.click(this.openModal.bind(this));
     //Close modal when clicking the X close modal button
     this.closeModalButton.click(this.closeModal.bind(this));
-    //Close modal when ESC key is pressed
+    //Execute keyPressHandler on any key released
+    $(document).keyup(this.keyPressHandler.bind(this));
 
+  }
+
+  keyPressHandler(e) {
+    //Close modal when 27 = ESC key is pressed. 
+    if (e.keyCode == 27) {
+      this.closeModal();
+    }
   }
 
   openModal() {
