@@ -37,10 +37,13 @@
     background-color: #e0e6ef;
 
     @mixin atLarge {
-      /*Load the testimonials backgroup image alight to the top and centre*/
-      background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-      /*Set the image to cover the container div*/
-      background-size: cover;
+      /*lazyload will add this class to the html object that display this backgroun image when the asset needs to be display*/
+      &.lazyloaded {
+        /*Load the testimonials backgroup image alight to the top and centre*/
+        background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+        /*Set the image to cover the container div*/
+        background-size: cover;
+      }
     }
 
   }

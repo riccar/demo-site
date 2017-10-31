@@ -7,6 +7,7 @@ import smoothScroll from 'jquery-smooth-scroll';
 
 class StickyHeader {
     constructor() {
+        this.lazyImages = $(".lazyload");
         //Select the site header object
         this.siteHeader = $(".site-header");
         //Select the trigger element to change background colour
@@ -19,6 +20,14 @@ class StickyHeader {
         //Create waypoints to highlight page sections links when scrolling
         this.createPageSectionWaypoints();
         this.addSmoothScrolling();
+        this.refreshWaypoints();
+    }
+
+    /*Refresh all the waypoints because waypoints calculated height needed to display elements is outdated after lazyload download the assets. All the waypoints are refreshed, even the ones within the RevealOnScroll.js. This is possible because Waypoints crete a global object called "waypoint" to the browser global window scope*/
+    refreshWaypoints() {
+        this.lazyImages.on('load', function() {
+            Waypoint.refreshAll();
+        });
     }
 
     addSmoothScrolling() {

@@ -8,6 +8,7 @@
   <meta name="keywords" content="Travel planning, travel bundles, travel escapes, affordable travel">
   <meta name="description" content="Your clarity. One trip away. We create soul restoring journeys that inspire you to be you.">
   <link rel="stylesheet" href="temp/styles/styles.css">
+  <script src="./temp/scripts/Vendor.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -75,7 +76,7 @@
         image the followin media query entry is used for min-width
         of 970px or larger use 976px width image otherwise, for screens
         smallers use the image whose width is 100% viewport width (100vw)-->
-        <img sizes="(min-width: 970px) 976px, 100vw" srcset="
+        <img class="lazyload" sizes="(min-width: 970px) 976px, 100vw" data-srcset="
                       assets/images/first-trip-low-res.jpg 565w,
                       assets/images/first-trip.jpg 976w,
                       assets/images/first-trip-hi-dpi.jpg 1952w"
@@ -89,12 +90,12 @@
                 the browser should be start rendering the image otherwise the
                 bigger image will be selected by default-->
             <!--For screens of 1020px or bigger.-->
-            <source sizes="404px" srcset="assets/images/our-start.jpg 404w, assets/images/our-start-hi-dpi.jpg 808w" media="(min-width: 1020px)">
+            <source sizes="404px" data-srcset="assets/images/our-start.jpg 404w, assets/images/our-start-hi-dpi.jpg 808w" media="(min-width: 1020px)">
             <!--For screens of 800px or bigger-->
-            <source sizes="382px" srcset="assets/images/our-start-portrait.jpg 382w, assets/images/our-start-portrait-hi-dpi.jpg 764w" media="(min-width: 800px)">
+            <source sizes="382px" data-srcset="assets/images/our-start-portrait.jpg 382w, assets/images/our-start-portrait-hi-dpi.jpg 764w" media="(min-width: 800px)">
             <!--Default images for tiny screens up to 800px-->
             <!--THe sizes= parameter is not needed because this image is extended browser wide-->
-            <img srcset="assets/images/our-start-landscape.jpg 800w, assets/images/our-start-landscape-hi-dpi.jpg 1600w" alt="Our founder, Jane Doe">
+            <img class="lazyload" data-srcset="assets/images/our-start-landscape.jpg 800w, assets/images/our-start-landscape-hi-dpi.jpg 1600w" alt="Our founder, Jane Doe">
           </picture>
 
         </div>
@@ -159,8 +160,9 @@
     </div>
   </div>
 
+  <!--Lazyload will change the lazyload class to lazyloaded once the background image is downloaded-->
   <div id="testimonials" class="page-section
-  page-section--no-b-padding-until-large page-section--testimonials" data-matching-link="#testimonials-link">
+  page-section--no-b-padding-until-large page-section--testimonials lazyload" data-matching-link="#testimonials-link">
 
     <div class="wrapper wrapper--no-padding-until-large">
 
@@ -171,7 +173,8 @@
         <div class="row__large-4">
           <div class="testimonial">
             <div class="testimonial__photo">
-              <img sizes="160px" srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w"
+              <!--Add lazyload class and custom attribute data-srcset so this image is donwloaded only when needed-->
+              <img class="lazyload" sizes="160px" data-srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w"
                     alt="Jane Doe" media="(min-width: 1020px)">
             </div>
             <h3 class="testimonial__title">Jane Doe</h3>
@@ -184,7 +187,7 @@
         <div class="row__large-4">
           <div class="testimonial">
             <div class="testimonial__photo">
-              <img sizes="160px" srcset="assets/images/testimonial-john.jpg 160w, assets/images/testimonial-john-hi-dpi.jpg 320w" alt="John Smith">
+              <img class="lazyload" sizes="160px" data-srcset="assets/images/testimonial-john.jpg 160w, assets/images/testimonial-john-hi-dpi.jpg 320w" alt="John Smith">
             </div>
             <h3 class="testimonial__title">John Smith</h3>
             <h4 class="testimonial__subtitle">4 Time Escaper</h4>
@@ -196,7 +199,7 @@
         <div class="row__large-4">
           <div class="testimonial testimonial--last">
             <div class="testimonial__photo">
-              <img sizes="160px" srcset="assets/images/testimonial-cat.jpg 160w, assets/images/testimonial-cat.jpg 320w" alt="Cat McKitty">
+              <img class="lazyload" sizes="160px" data-srcset="assets/images/testimonial-cat.jpg 160w, assets/images/testimonial-cat.jpg 320w" alt="Cat McKitty">
             </div>
             <h3 class="testimonial__title">Cat McKitty</h3>
             <h4 class="testimonial__subtitle">6 Time Escaper</h4>
@@ -231,13 +234,11 @@
         </div>
 
     </div>
-    
-
     <div class="modal__close">X</div>
-
   </div>
 
   <script src="./temp/scripts/App.js"></script>
+
 </body>
 
 </html>

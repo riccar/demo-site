@@ -639,12 +639,15 @@ This style adds left and right padding so all the content is located at the cent
   }
 @media (min-width: 1010px) {
 .page-section--testimonials {
-      /*Load the testimonials backgroup image alight to the top and centre*/
-      background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-      /*Set the image to cover the container div*/
-      background-size: cover
+      /*lazyload will add this class to the html object that display this backgroun image when the asset needs to be display*/
 
   }
+      .page-section--testimonials.lazyloaded {
+        /*Load the testimonials backgroup image alight to the top and centre*/
+        background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+        /*Set the image to cover the container div*/
+        background-size: cover;
+      }
   }
 /*Style for the headline titiles and sub title*/
 .headline {

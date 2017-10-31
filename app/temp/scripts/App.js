@@ -11305,6 +11305,7 @@ var StickyHeader = function () {
     function StickyHeader() {
         _classCallCheck(this, StickyHeader);
 
+        this.lazyImages = (0, _jquery2.default)(".lazyload");
         //Select the site header object
         this.siteHeader = (0, _jquery2.default)(".site-header");
         //Select the trigger element to change background colour
@@ -11317,9 +11318,20 @@ var StickyHeader = function () {
         //Create waypoints to highlight page sections links when scrolling
         this.createPageSectionWaypoints();
         this.addSmoothScrolling();
+        this.refreshWaypoints();
     }
 
+    /*Refresh all the waypoints because waypoints calculated height needed to display elements is outdated after lazyload download the assets. All the waypoints are refreshed, even the ones within the RevealOnScroll.js. This is possible because Waypoints crete a global object called "waypoint" to the browser global window scope*/
+
+
     _createClass(StickyHeader, [{
+        key: 'refreshWaypoints',
+        value: function refreshWaypoints() {
+            this.lazyImages.on('load', function () {
+                Waypoint.refreshAll();
+            });
+        }
+    }, {
         key: 'addSmoothScrolling',
         value: function addSmoothScrolling() {
             this.headerLinks.smoothScroll();
