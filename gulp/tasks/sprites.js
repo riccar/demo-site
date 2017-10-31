@@ -4,7 +4,8 @@ and saves them to the destination folder*/
 var gulp = require('gulp'),
 svgSprite = require('gulp-svg-sprite'),
 rename = require('gulp-rename'),
-del = require('del');
+del = require('del'),
+svg2png = require('gulp-svg2png');
 
 /*Sprite configuration object*/
 var config = {
@@ -41,12 +42,19 @@ gulp.task('createSprite', ['beginClean'], function() {
     .pipe(gulp.dest('./app/temp/sprite/'));
 });
 
+/*Creates a png copy of the svg for browsers not supporting svg*/
+gulp.task('createPngCopy', ['createSprite'], function() {
+  return gulp.src('./app/temp/sprite/css/*.svg')
+    .pipe(svg2png())
+    .pipe(gulp.dest('./app/temp/sprite/css'))
+});
+
 /*
 Copy the sprite.svg generated file to the assets/images/sprites
 folder. The 'createSprite' task is set as a dependency parameter
 */
-gulp.task('copySpriteGraphic', ['createSprite'], function() {
-  return gulp.src('./app/temp/sprite/css/**/*.svg')
+gulp.task('copySpriteGraphic', ['createPngCopy'], function() {
+  return gulp.src('./app/temp/sprite/css/**/*.{svg,png}')
     .pipe(gulp.dest('./app/assets/images/sprites'));
 });
 
@@ -72,4 +80,4 @@ gulp.task('endClean', ['copySpriteGraphic', 'copySpriteCSS'], function() {
 /*
 Compile above tasks into one so they can be run together
 */
-gulp.task('icons', ['beginClean', 'createSprite', 'copySpriteGraphic', 'copySpriteCSS', 'endClean']);
+gulp.task('icons', ['beginClean', 'createSprite', 'createPngCopy', 'copySpriteGraphic', 'copySpriteCSS', 'endClean']);
