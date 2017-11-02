@@ -4,15 +4,12 @@ by Gulp. Instead edit gulp/templates/sprite */
     /*Use sprite background image generated for every icon class in the page*/
     .icon {
       background-image: url('/assets/images/sprites/sprite-e79e95cc.svg');
-<<<<<<< HEAD
-=======
     }
 
     /*since modernizer adds the .no-svg class when the browser doesn't 
     support svg, use the png version of the icons file instead. To arhieve this, a filter funtion replaceSvgWithPng was creted in sprites.js config object, hence the sprite-e79e95cc.svg variable is wrapped within the filter function name */
     .no-svg .icon {
       background-image: url('/assets/images/sprites/sprite-e79e95cc.png');
->>>>>>> old-browser-support
     }
 
   .icon--clear-view-escapes {
