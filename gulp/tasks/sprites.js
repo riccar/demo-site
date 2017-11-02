@@ -1,4 +1,4 @@
-/*createSprite taks combines all the icons in the source into a sprites
+/*createSprite task combines all the icons in the source into a sprites
 and saves them to the destination folder*/
 
 var gulp = require('gulp'),
@@ -7,10 +7,21 @@ rename = require('gulp-rename'),
 del = require('del'),
 svg2png = require('gulp-svg2png');
 
-/*Sprite configuration object*/
+/*Sprite configuration object to control the css generated for the svg assets. To provide compatibility for older browsers not supporting svg
+create a filter function to replace .svg for .png */
 var config = {
   mode: {
     css: {
+      variables: {
+        //Filter function to replace the svg file with png 
+        replaceSvgWithPng: function() {
+          //Return another function with the sprite file and render function as parameters
+          return function(sprite, render) {
+            //call the render method that gives access to the css template to search for the sprite name generated and change the .svg extension for .png
+            return render(sprite).split('.svg').join('.png');
+          }
+        }
+      },
       sprite: 'sprite.svg',
       render: {
         css: {
@@ -20,7 +31,7 @@ var config = {
       }
     }
   }
-};
+}
 
 /*
 Deletes the following folders to avoid keeping old sprites files every time
@@ -46,7 +57,7 @@ gulp.task('createSprite', ['beginClean'], function() {
 gulp.task('createPngCopy', ['createSprite'], function() {
   return gulp.src('./app/temp/sprite/css/*.svg')
     .pipe(svg2png())
-    .pipe(gulp.dest('./app/temp/sprite/css'))
+    .pipe(gulp.dest('./app/temp/sprite/css'));
 });
 
 /*
