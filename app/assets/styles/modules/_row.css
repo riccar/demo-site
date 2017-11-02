@@ -121,7 +121,7 @@
 
   /*Begin equial height rules*/
   /*Use flexbox to make al all the columns boxes of the same height*/
-  &--equal-height-at-medium {
+  .flexbox &--equal-height-at-medium {
     @mixin atMedium {
       display: flex;
     }
@@ -135,7 +135,7 @@
 
   }
 
-  &--equal-height-at-large {
+  .flexbox &--equal-height-at-large {
     @mixin atLarge {
       display: flex;
     }

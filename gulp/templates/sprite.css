@@ -3,7 +3,7 @@ by Gulp. Instead edit gulp/templates/sprite */
 
 {{#shapes}}
   {{#first}}
-    //Use sprite background image generated for every icon class in the page
+    /*Use sprite background image generated for every icon class in the page*/
     .icon {
       background-image: url('/assets/images/sprites/{{{sprite}}}');
     }

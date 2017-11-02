@@ -57,8 +57,9 @@
       left: auto;
       transform: translateX(0);
 
+      /*Make the header darker and the logo smaller when the user scrolls down.*/
       .site-header--dark & {
-        transform: scale(.57);
+        transform: scale(.56);
 
       }
      

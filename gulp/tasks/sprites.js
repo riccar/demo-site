@@ -10,6 +10,11 @@ svg2png = require('gulp-svg2png');
 /*Sprite configuration object to control the css generated for the svg assets. To provide compatibility for older browsers not supporting svg
 create a filter function to replace .svg for .png */
 var config = {
+  shape: {
+    spacing: {
+      padding: 1
+    }
+  },
   mode: {
     css: {
       variables: {
