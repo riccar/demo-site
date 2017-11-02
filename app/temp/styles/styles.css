@@ -1,3 +1,5 @@
+
+@import "modules/_sprite";
 /*postcss-import module allows the import of css files that are focused on
 styling specific parts of the web application so the code is better organized and
 easy to mantein*/
@@ -832,7 +834,7 @@ This style adds left and right padding so all the content is located at the cent
   }
 /*Use flexbox to make al all the columns boxes of the same height*/
 @media (min-width: 800px) {
-.row--equal-height-at-medium {
+.flexbox .row--equal-height-at-medium {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex
@@ -841,7 +843,7 @@ This style adds left and right padding so all the content is located at the cent
   }
 /*Select all the divs of this container and make them to use display flex
     instead of float*/
-.row--equal-height-at-medium > div {
+.flexbox .row--equal-height-at-medium > div {
       float: none;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -849,7 +851,7 @@ This style adds left and right padding so all the content is located at the cent
     }
 /*Begin equial height rules*/
 @media (min-width: 1010px) {
-.row--equal-height-at-large {
+.flexbox .row--equal-height-at-large {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex
@@ -858,7 +860,7 @@ This style adds left and right padding so all the content is located at the cent
   }
 /*Select all the divs of this container and make them to use display flex
     instead of float*/
-.row--equal-height-at-large > div {
+.flexbox .row--equal-height-at-large > div {
       float: none;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -1030,71 +1032,6 @@ To aligh an icon or image to the left and the text to the right
     font-size: 0.9375rem;
     margin: .25rem 0 1rem 0;
   }
-/*Do not edit modules/_sprite directly as it is generated automatically
-by Gulp. Instead edit gulp/templates/sprite */
-.icon {
-      background-image: url('/assets/images/sprites/sprite-e79e95cc.svg');
-    }
-.icon--clear-view-escapes {
-    width: 144.4px;
-    height: 61.53px;
-    background-position: 0 0;
-  }
-.icon--comment {
-    width: 66px;
-    height: 66px;
-    background-position: 99.71014492753623% 0;
-  }
-.icon--facebook {
-    width: 23.23px;
-    height: 44.01px;
-    background-position: 26.424310365536293% 45.92133741323979%;
-  }
-.icon--fire {
-    width: 58px;
-    height: 66px;
-    background-position: 0 99.58035714285714%;
-  }
-.icon--globe {
-    width: 66px;
-    height: 66px;
-    background-position: 28.019323671497585% 99.58035714285714%;
-  }
-.icon--instagram {
-    width: 44.01px;
-    height: 44.01px;
-    background-position: 63.059522249879905% 49.25740726919919%;
-  }
-.icon--mail {
-    width: 66px;
-    height: 50px;
-    background-position: 0 48.0703125%;
-  }
-.icon--rain {
-    width: 66px;
-    height: 66px;
-    background-position: 99.71014492753623% 58.92857142857143%;
-  }
-.icon--star {
-    width: 66px;
-    height: 66px;
-    background-position: 59.90338164251208% 99.58035714285714%;
-  }
-.icon--twitter {
-    width: 53.78px;
-    height: 44.06px;
-    background-position: 94.15199343125627% 98.55159026429745%;
-  }
-.icon--wifi {
-    width: 62px;
-    height: 66px;
-    background-position: 68.43601895734596% 0;
-  }
-.icon--youtube {
-    width: 36.75px;
-    height: 44px;
-    background-position: 37.76931216931217% 45.917910447761194%;
-  }
 .site-footer {
   background-color: #2f5572;
   padding: .5rem 0;
@@ -1181,9 +1118,13 @@ by Gulp. Instead edit gulp/templates/sprite */
       left: auto;
       -webkit-transform: translateX(0);
               transform: translateX(0)
-
-      /*Scale main header logo when the sitcky header becomes darker and the user is scrolloing down*/
   }
+
+<<<<<<< HEAD
+      
+=======
+      
+>>>>>>> old-browser-support
       .site-header--dark .site-header__logo {
         -webkit-transform: scale(.56);
                 transform: scale(.56);

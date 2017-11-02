@@ -57,7 +57,11 @@
       left: auto;
       transform: translateX(0);
 
+<<<<<<< HEAD
       /*Scale main header logo when the sitcky header becomes darker and the user is scrolloing down*/
+=======
+      /*Make the header darker and the logo smaller when the user scrolls down.*/
+>>>>>>> old-browser-support
       .site-header--dark & {
         transform: scale(.56);
 
