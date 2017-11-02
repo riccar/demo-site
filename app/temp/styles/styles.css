@@ -1181,9 +1181,9 @@ by Gulp. Instead edit gulp/templates/sprite */
       left: auto;
       -webkit-transform: translateX(0);
               transform: translateX(0)
-  }
 
-      //Scale main header logo when the sitcky header becomes darker and the user is scrolloing down
+      /*Scale main header logo when the sitcky header becomes darker and the user is scrolloing down*/
+  }
       .site-header--dark .site-header__logo {
         -webkit-transform: scale(.56);
                 transform: scale(.56);
