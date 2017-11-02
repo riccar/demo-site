@@ -8,6 +8,11 @@ del = require('del');
 
 /*Sprite configuration object*/
 var config = {
+  shape: {
+    spacing: {
+      padding: 1
+    }
+  },
   mode: {
     css: {
       sprite: 'sprite.svg',
