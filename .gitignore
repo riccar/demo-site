@@ -10,6 +10,7 @@
 *~
 *.sass-cache
 node_modules/
+.vscode/
 .tmp/
 .idea/
 # OS or Editor folders
