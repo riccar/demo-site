@@ -644,7 +644,7 @@ This style adds left and right padding so all the content is located at the cent
   }
       .page-section--testimonials.lazyloaded {
         /*Load the testimonials backgroup image alight to the top and centre*/
-        background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+        background: url('../../assets/images/testimonials-bg.jpg') top center no-repeat;
         /*Set the image to cover the container div*/
         background-size: cover;
       }
@@ -1034,12 +1034,12 @@ To aligh an icon or image to the left and the text to the right
 by Gulp. Instead edit gulp/templates/sprite */
 /*Use sprite background image generated for every icon class in the page*/
 .icon {
-      background-image: url('/assets/images/sprites/sprite-e79e95cc.svg');
+      background-image: url('../../assets/images/sprites/sprite-e79e95cc.svg');
     }
 /*since modernizer adds the .no-svg class when the browser doesn't 
     support svg, use the png version of the icons file instead. To arhieve this, a filter funtion replaceSvgWithPng was creted in sprites.js config object, hence the sprite-e79e95cc.svg variable is wrapped within the filter function name */
 .no-svg .icon {
-      background-image: url('/assets/images/sprites/sprite-e79e95cc.png');
+      background-image: url('../../assets/images/sprites/sprite-e79e95cc.png');
     }
 .icon--clear-view-escapes {
     width: 144.4px;
