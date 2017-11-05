@@ -56,5 +56,19 @@ The build process is fully automated via the ``gulp build`` task which executes 
 - ``gulp deleteDistFolder``: Deletes the content of the ``/dist`` folder before creating new files
 - ``gulp optimizeImages``: Compress jpeg, gif ans svg images using ``gulp-imagemin`` and save them in the ``/dist/assets/images`` folder
 - ``gulp useminiTrigger``: Compress, optimize and revision css and js files using the ``gulp-cssnano`` and ``gulp-uglify`` modules before copying the files to the ``/assets/styles`` and ``/assets/scripts`` folders. In the process this task also triggers the ``gulp styles`` and ``gulp scripts`` tasks
-- Finally ``gulp previewDist`` launches another ``browswersync`` mini server to preview the site within the ``/dist``folder ready for deployment
+- Finally ``gulp previewDist`` launches another ``browsersync`` mini server to preview the site within the ``/dist``folder ready for deployment
+
+# Vendor modules.
+The following modules are used in production to improve website load time and browser compatibility
+- ``picturefill``: This module modifies ``<picture>`` tag and ``srcset=`` attribute for old browsers used for responsive images
+- ``lazysizes``: Allows to use special attributes for html image tags so they are downloaded while ready to be displayed during scrolling down the page rather than at page load
+
+# Website Styling
+- B.E.M approach
+- Mobile first approach
+
+# Website scripting
+- OO javascript approach with Babel
+
+# What's next
 
