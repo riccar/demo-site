@@ -63,12 +63,75 @@ The following modules are used in production to improve website load time and br
 - ``picturefill``: TEnable the usage of ``<picture>`` tag and ``srcset=`` attribute used for responsive images in browsers not yet supporting them 
 - ``lazysizes``: Allows to use special attributes for html image tags so they are downloaded once they are needed to be displayed while scrolling down the page rather than at page load
 
-# Website Styling
-- B.E.M approach
-- Mobile first approach
+# Styling
+This website was styled following the next two approaches.
 
-# Website scripting
-- OO javascript approach with Babel
+- Block Element Modifier (BEM) naming convention. BEM makes the relationship between HTML and CSS easier understand, maintain and reuse which facilitate scalability 
+
+B.E.M.:
+- Blocks: css class selectors to style independent reusable portions of the designed page
+- Element: css class selectors for elements contained within a block requiring additional styling
+- Modifier: css class selectors to target blocks or elements to provide style for a change to the default state 
+
+- Mobile first approach
+With the heavy increase in traffic coming from mobile devices, it's wise to start the styling for small screens and then build up additional styling to properly fit bigger screens. The result is lightweight and fast browsing websites that look great for tiny, small, medium and large size screens
+
+Example of BEM and mobile first approach. (Original comments were edited for better exemplification)
+Note: the "&" symbol is used in conjunction with Postcss preprocessor to indicate the use of the name of the main class during css conversion and avoid cascading BEM Elements within the Block 
+
+```
+/*Main class selector for the testimonial Block*/
+.testimonial {
+  /*Default styling for tiny screens and bigger */
+  background-color: rgba(255, 255, 255, .8);
+  padding: 0 1rem 1px 1rem;
+  margin-bottom:  98px;
+
+  /*Style for large screens only*/
+  @mixin atLarge {
+    padding: 0 1.8125rem 1px 1.8125rem;
+    margin-bottom:  0;
+  }
+
+  /*Class Modifier for the last testimonial Element*/
+  &--last {
+    margin-bottom: 0;
+  }
+
+  /*Class Modifiers for the photo, title and sub title Element within the testimonial*/
+  &__photo {
+    border-radius: 80px;
+    ...
+  }
+
+  &__title {
+    color: $mainBlue;
+    ...
+  }
+
+  &__subtitle {
+    color: $mainOrange;
+    ...
+  }
+
+}
+```
+Snippet of the html section. Note the responsive image approach by providing the different image resolution and the screen width size where each image should be used. 
+```
+<div class="testimonial testimonial--last">
+    <div class="testimonial__photo">
+      <img class="lazyload" sizes="160px" data-srcset="assets/images/testimonial-cat.jpg 160w, assets/images/testimonial-cat-hi-dpi.jpg 320w" alt="Cat McKitty">
+    </div>
+    <h3 class="testimonial__title">Cat McKitty</h3>
+    <h4 class="testimonial__subtitle">6 Time Escaper</h4>
+    ...
+  </div>
+</div>
+
+```
+
+# Scripting
+- O.O. javascript approach with Babel
 
 # What's next
 - Server-side features with Nodejs, Express and MongoDB
