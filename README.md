@@ -60,8 +60,8 @@ The build process is fully automated via the ``gulp build`` task which executes 
 
 # Vendor modules.
 The following modules are used in production to improve website load time and browser compatibility
-- ``picturefill``: This module modifies ``<picture>`` tag and ``srcset=`` attribute for old browsers used for responsive images
-- ``lazysizes``: Allows to use special attributes for html image tags so they are downloaded while ready to be displayed during scrolling down the page rather than at page load
+- ``picturefill``: TEnable the usage of ``<picture>`` tag and ``srcset=`` attribute used for responsive images in browsers not yet supporting them 
+- ``lazysizes``: Allows to use special attributes for html image tags so they are downloaded once they are needed to be displayed while scrolling down the page rather than at page load
 
 # Website Styling
 - B.E.M approach
@@ -71,4 +71,4 @@ The following modules are used in production to improve website load time and br
 - OO javascript approach with Babel
 
 # What's next
-
+- Server-side features with Nodejs, Express and MongoDB
