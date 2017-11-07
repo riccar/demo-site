@@ -76,7 +76,7 @@ B.E.M.:
 - Modifier: css class selectors to target blocks or elements to provide style for a change to the default state 
 
 - Mobile first approach
-With the heavy increase in traffic coming from mobile devices, it's wise to start the styling based on small screens and then build up additional styling to properly fit bigger screens. The result is lightweight and fast browsing websites that look great for tiny, small, medium and large size screens
+With the heavy increase in traffic coming from mobile devices, it's important to start the styling based on small screens as default and then build up additional styling to properly fit bigger screens. The result is lightweight, fast and responsive browsing websites that look great for tiny, small, medium and large size screens
 
 Example of BEM and mobile first approach. (Original comments were edited for better exemplification)
 Note: the "&" symbol is used in conjunction with Postcss preprocessor to indicate the use of the name of the block class during css conversion and avoid cascading BEM Elements within the Block 
