@@ -12,20 +12,20 @@ Folder structure example
 /app
   /assets
     /images
-      /scripts
-        /modules    -Object-oriented well-organized ES6 js files
-        App.js      -Imports js files within /modules and declare js objects. 
-        Vendor.js   -Imports vendor js libraries not requiring custom js code
-      /styles
-        /base
-        /modules    -Modular css files following the B.E.M. approach and Postcss preprocessor
-        styles.css  -Imports css files within /modules
-  /temp             -Contains bundled css and js files, imported from the html. 
-                      These files are generated and modernized by automated tasks and npm modules 
-/docs               -The "dist" folder containing only the necessary assets, for production deployment. 
-                      These assets are well optimized for faster and low data consumption browsing. 
-/gulp               -Contains the gulp tasks to automate various developmental tasks like 
-                      css pre-processing, js bundling, and browser refresh when source files change.
+    /scripts
+      /modules    -Object-oriented well-organized ES6 js files
+      App.js      -Imports js files within /modules and declare js objects. 
+      Vendor.js   -Imports vendor js libraries not requiring custom js code
+    /styles
+      /base
+      /modules    -Modular css files following the B.E.M. approach and Postcss preprocessor
+      styles.css  -Imports css files within /modules
+  /temp           -Contains bundled css and js files, imported from the html. 
+                    These files are generated and modernized by automated tasks and npm modules 
+/docs             -The "dist" folder containing only the necessary assets, for production deployment. 
+                    These assets are well optimized for faster and low data consumption browsing. 
+/gulp             -Contains the gulp tasks to automate various developmental tasks like 
+                    css pre-processing, js bundling, and browser refresh when source files change.
     
 ```
 # Development phase nodejs modules
@@ -169,6 +169,7 @@ export default MobileMenu;
 ```
 
 # What's next
-- Server-side features with Nodejs, Express and MongoDB to develop a booking sections where customers can manage their own tours and travels
 - Control panel web application made in React and Redux for the travel agency employees to administrate tours, bookings and customer relationship
+- Server-side features with Nodejs, Express and MongoDB to develop a booking sections where customers can manage their own tours and travels
+
 
